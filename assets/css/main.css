@@ -2455,7 +2455,7 @@ input, select, textarea {
 		input[type="button"].icon:before,
 		button.icon:before,
 		.button.icon:before {
-			margin-right: 0.5em;
+			margin-right: 1em;
 		}
 
 		input[type="submit"].fit,

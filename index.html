@@ -5,17 +5,57 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="./images/favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="./assets/js/semantic/semantic.min.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			/*滚动条宽度*/
+			::-webkit-scrollbar {
+				width: 6px;
+				height: 6px;
+			}
+			/*滚动条轨道*/
+			::-webkit-scrollbar-track {
+				background: transparent;
+				border-radius: 2px;
+			}
+			/*小滑块*/
+			::-webkit-scrollbar-thumb {
+				background: rgb(76,86,96);
+				border-radius: 10px;
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background: rgb(66,76,86);
+			}
+
 			.m-font-size-text-init-title{
 				line-height: 0;
-				letter-spacing:1px!important;
+				letter-spacing: 0 !important;
 				font-size: 24px;
+				font-weight: 700;
 				color: #fffffc;
 				align-content: center;
 				font-family:'STXingkai';
 			}
+
+			.icon_bottom{
+				box-shadow: none;
+				border-radius: 1.5em;
+				width: 3em;
+				padding: 0 1.025em;
+				height: 3em;
+				line-height: 3em;
+				background-color: rgb(46,56,66);
+			}
+
+			.bgImg{
+				border-radius: 8em;
+				width: 8em;
+				height: 8em;
+				background: url("./images/avatar.jpg") no-repeat center;
+				background-size: 11em;
+			}
+
 		</style>
 	</head>
 	<body class="landing is-preload">
@@ -47,18 +87,31 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<div>
-								<img src="./images/avatar.jpg" width="150px" height="150px" style="border-radius: 150px">
+							<div align="center" style="margin-bottom: 1em">
+								<div class="bgImg"></div>
 							</div>
+							<div align="center" style="margin-bottom: 0.5em">
+								<a href="#" class="icon icon_bottom button brands fa-weixin" data-content="ug2083206548" data-position="bottom center"><span class="label">微信</span></a>
+								<a href="#" class="icon icon_bottom button brands fa-qq" style="padding: 0 1.1em;" data-content="2083206548" data-position="bottom center"><span class="label">QQ</span></a>
+								<a href="#" class="icon icon_bottom button brands fa-github" data-content="@ugaung2003" data-position="bottom center"><span class="label">Github</span></a>
+								<a href="#" class="icon icon_bottom button solid fa-envelope" data-content="ugaung2003@gmail.com" data-position="bottom center"><span class="label">邮箱</span></a>
+							</div>
+
+							<div class="ui wechat-qr flowing popup transition hidden">
+								<img src="./images/pic01.jpg" alt="" class="ui rounded image" style="width: 110px">
+								<div align="center">微信</div>
+							</div>
+							<div class="ui qq-qr flowing popup transition hidden">
+								<img src="./images/pic01.jpg" alt="" class="ui rounded image" style="width: 110px">
+								<div align="center">QQ</div>
+							</div>
+
 							<h2>UG666</h2>
 							<p class="m-font-size-text-init-title"><span>你不能给两个人打伞</span></p>
 							<p class="m-font-size-text-init-title"><span>我的意思是</span></p>
 							<p class="m-font-size-text-init-title"><span>二选一的时候记得放弃我</span></p>
-							<p class="m-font-size-text-init-title"><span>毕竟我，不想做别人的选择</span></p>
+							<p class="m-font-size-text-init-title"><span>毕竟我,不想做别人的选择</span></p>
 
-<!--							<ul class="actions special">-->
-<!--								<li><a href="#" class="button primary">Activate</a></li>-->
-<!--							</ul>-->
 						</div>
 						<a href="#one" class="more scrolly">More</a>
 					</section>
@@ -168,6 +221,7 @@
 						<ul class="copyright">
 							<li>&copy; UG666</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
+						<div style="color: #919397;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">我的博客已运行：<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
 					</footer>
 
 			</div>
@@ -180,6 +234,68 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="./assets/js/semantic/semantic.min.js"></script>
+
+			<script>
+
+				// 运行时间统计
+				function secondToDate(second) {
+					if (!second) {
+						return 0;
+					}
+					const time = [0, 0, 0, 0, 0];
+					if (second >= 365 * 24 * 3600) {
+						time[0] = parseInt(second / (365 * 24 * 3600));
+						second %= 365 * 24 * 3600;
+					}
+					if (second >= 24 * 3600) {
+						time[1] = parseInt(second / (24 * 3600));
+						second %= 24 * 3600;
+					}
+					if (second >= 3600) {
+						time[2] = parseInt(second / 3600);
+						second %= 3600;
+					}
+					if (second >= 60) {
+						time[3] = parseInt(second / 60);
+						second %= 60;
+					}
+					if (second > 0) {
+						time[4] = second;
+					}
+					return time;
+				}
+				function setTime() {
+					/*此处为网站的创建时间*/
+					const create_time = Math.round(new Date(Date.UTC(2023, 3 - 1, 24, 19, 0, 0)).getTime() / 1000);
+					const timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+					const currentTime = secondToDate((timestamp - create_time));
+					const currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+							+ currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+							+ '秒';
+					document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+				}
+				setInterval(setTime, 1000);
+
+
+				// 显示微信
+				$('.fa-weixin').popup({
+					popup : $('.wechat-qr'),
+					position: 'bottom center'
+				});
+
+				// 显示QQ
+				$('.fa-qq').popup({
+					popup : $('.qq-qr'),
+					position: 'bottom center'
+				});
+
+				// 显示github
+				$('.fa-github').popup();
+
+				// 显示邮箱
+				$('.fa-envelope').popup();
+			</script>
 
 	</body>
 </html>
