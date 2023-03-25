@@ -2555,7 +2555,7 @@ input, select, textarea {
 	}
 
 		.features li {
-			padding: 4em 4em 2em 6em ;
+			padding: 2em 4em 2em 6em ;
 			display: block;
 			position: relative;
 			text-align: left;
@@ -2607,7 +2607,7 @@ input, select, textarea {
 				color: #00ffcc;
 				position: absolute;
 				left: 1.75em;
-				top: 2.75em;
+				top: 1.5em;
 				font-size: 1.5em;
 			}
 
@@ -2686,12 +2686,12 @@ input, select, textarea {
 			}
 
 		.spotlight .content {
-			padding: 2em 4em 0.1em 4em ;
+			padding: 0 4em 0.1em 4em ;
 			-moz-order: 2;
 			-webkit-order: 2;
 			-ms-order: 2;
 			order: 2;
-			max-width: 48em;
+			/*max-width: 48em;*/
 			width: 60%;
 		}
 
@@ -2780,7 +2780,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.spotlight .content {
-				padding: 3em 2em 1em 2em ;
+				padding: 1em 2em 2em 2em ;
 			}
 
 		}
