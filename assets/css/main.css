@@ -2770,7 +2770,7 @@ input, select, textarea {
 				}
 
 				.spotlight .content {
-					padding: 4em 3em 2em 3em ;
+					padding: 2em 3em 2em 3em ;
 					max-width: none;
 					text-align: center;
 					width: 100%;
@@ -3955,7 +3955,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			#footer {
-				padding: 4em 1em 2em 1em ;
+				padding: 4em 2em 2em 2em ;
 			}
 
 		}
@@ -3963,7 +3963,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#footer {
-				padding: 3em 2em 1em 2em ;
+				padding: 3em 1em 1em 1em ;
 			}
 
 		}
