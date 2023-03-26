@@ -49,11 +49,15 @@
 			}
 
 			.bgImg{
-				border-radius: 8em;
-				width: 8em;
-				height: 8em;
+				border-radius: 10em;
+				width: 10em;
+				height: 10em;
 				background: url("./images/avatar.jpg") no-repeat center;
-				background-size: 11em;
+				background-size: 13em;
+			}
+
+			.tubiao{
+				margin-bottom: 0.5em
 			}
 
 			.a-content p{
@@ -64,6 +68,23 @@
 				background-color: rgba(0, 0, 0, .3)!important;
 			}
 
+			@media screen and (max-width: 736px){
+				.m-font-size-text-init-title{
+					margin-top: 1em;
+					line-height: 0.5em;
+				}
+				.bgImg{
+					border-radius: 10em;
+					width: 10em;
+					height: 10em;
+					background: url("./images/avatar.jpg") no-repeat center;
+					background-size: 13em;
+				}
+				.tubiao{
+					margin-bottom: 2em;
+					margin-top: 2em;
+				}
+			}
 		</style>
 	</head>
 	<body class="landing is-preload">
@@ -81,10 +102,10 @@
 									<div id="menu">
 										<ul>
 											<li><a href="index.html">主页</a></li>
-											<li><a href="generic.html">Generic</a></li>
-											<li><a href="elements.html">Elements</a></li>
-											<li><a href="#">登录</a></li>
-											<li><a href="#">注册</a></li>
+<!--											<li><a href="generic.html">Generic</a></li>-->
+<!--											<li><a href="elements.html">Elements</a></li>-->
+											<li><a href="#">资源库</a></li>
+											<li><a href="#">关于我</a></li>
 										</ul>
 									</div>
 								</li>
@@ -95,23 +116,25 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<div align="center" style="margin-bottom: 1em">
+							<div align="center" style="margin-bottom: 1em; margin-top: -2em">
 								<div class="bgImg"></div>
 							</div>
-							<div align="center" style="margin-bottom: 0.5em">
-								<a href="#" class="icon icon_bottom button brands fa-weixin" data-content="ug2083206548" data-position="bottom center"><span class="label">微信</span></a>
+							<div align="center" class="tubiao">
+								<a href="#" class="icon icon_bottom button brands fa-weixin" style="padding: 0 0.95em;" data-content="ug2083206548" data-position="bottom center"><span class="label">微信</span></a>
 								<a href="#" class="icon icon_bottom button brands fa-qq" style="padding: 0 1.1em;" data-content="2083206548" data-position="bottom center"><span class="label">QQ</span></a>
 								<a href="#" class="icon icon_bottom button brands fa-github" data-content="@ugaung2003" data-position="bottom center"><span class="label">Github</span></a>
 								<a href="#" class="icon icon_bottom button solid fa-envelope" data-content="ugaung2003@gmail.com" data-position="bottom center"><span class="label">邮箱</span></a>
 							</div>
 
 							<div class="ui wechat-qr flowing popup transition hidden">
-								<img src="./images/pic01.jpg" alt="" class="ui rounded image" style="width: 110px">
+								<img src="./images/weixin.jpg" alt="" class="ui rounded image" style="width: 8em">
 								<div align="center">微信</div>
+								<div align="center">ug2083206548</div>
 							</div>
 							<div class="ui qq-qr flowing popup transition hidden">
-								<img src="./images/pic01.jpg" alt="" class="ui rounded image" style="width: 110px">
+								<img src="./images/qq.png" alt="" class="ui rounded image" style="width: 8em">
 								<div align="center">QQ</div>
+								<div align="center">2083206548</div>
 							</div>
 
 							<h2>UG666</h2>
@@ -131,11 +154,11 @@
 								<h2>欢迎来到我的博客，我是UG666</h2>
 								<p>既然来了，就往下面看下去吧</p>
 							</header>
-							<ul class="icons major">
-								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
-								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
-							</ul>
+<!--							<ul class="icons major">-->
+<!--								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>-->
+<!--								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>-->
+<!--								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>-->
+<!--							</ul>-->
 						</div>
 					</section>
 
@@ -154,14 +177,14 @@
 							<div class="image"><img src="images/xiaoyan.jpg" alt="" /></div><div class="content">
 								<h2>莫欺少年穷</h2>
 								<p>
-									一个斗码大陆苦逼的三段码之气的少年，并没有神秘戒指中码老的帮助，但总有一天，我会成为斗码大陆中码帝一样的存在。三十年河东，三十年河西，莫欺少年穷。
+									一个斗码大陆苦逼的三段码之气的少年，并没有神秘戒指中码老的帮助，但总有一天，我会成为斗码大陆中码帝一般的存在。三十年河东，三十年河西，莫欺少年穷。
 								</p>
 							</div>
 						</section>
 						<section class="spotlight">
 							<div class="image"><img src="images/caocao.jpg" alt="" /></div><div class="content">
 								<h2>无名之辈</h2>
-								<p>你又怎么知道，今天的无名之辈，来日会不会名震天下。假如有一天，他们真的名震天下了，你会不会后悔为今天的所作所谓追悔莫及呢？</p>
+								<p>你又怎么知道，今天的无名之辈，来日会不会名震天下。假如有一天，他们真的名震天下了，你会不会后悔为今天的所作所为追悔莫及呢？</p>
 							</div>
 						</section>
 					</section>
@@ -186,30 +209,30 @@
 										<p>有超级马里奥，扫雷，CSS爱心</p>
 									</a>
 								</li>
-								<li class="icon solid fa-code a-content">
-									<a href="#" target="_blank">
-										<h3>Mus Scelerisque</h3>
-										<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-									</a>
-								</li>
-								<li class="icon solid fa-headphones-alt a-content">
-									<a href="#" target="_blank">
-										<h3>Mauris Imperdiet</h3>
-										<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-									</a>
-								</li>
-								<li class="icon fa-heart a-content">
-									<a href="#" target="_blank">
-										<h3>Aenean Primis</h3>
-										<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-									</a>
-								</li>
-								<li class="icon fa-flag a-content">
-									<a href="#" target="_blank">
-									<h3>Tortor Ut</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-									</a>
-								</li>
+<!--								<li class="icon solid fa-code a-content">-->
+<!--									<a href="#" target="_blank">-->
+<!--										<h3>Mus Scelerisque</h3>-->
+<!--										<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>-->
+<!--									</a>-->
+<!--								</li>-->
+<!--								<li class="icon solid fa-headphones-alt a-content">-->
+<!--									<a href="#" target="_blank">-->
+<!--										<h3>Mauris Imperdiet</h3>-->
+<!--										<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>-->
+<!--									</a>-->
+<!--								</li>-->
+<!--								<li class="icon fa-heart a-content">-->
+<!--									<a href="#" target="_blank">-->
+<!--										<h3>Aenean Primis</h3>-->
+<!--										<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>-->
+<!--									</a>-->
+<!--								</li>-->
+<!--								<li class="icon fa-flag a-content">-->
+<!--									<a href="#" target="_blank">-->
+<!--									<h3>Tortor Ut</h3>-->
+<!--									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>-->
+<!--									</a>-->
+<!--								</li>-->
 							</ul>
 						</div>
 					</section>
@@ -218,29 +241,30 @@
 					<section id="cta" class="wrapper style4">
 						<div class="inner">
 							<header>
-								<h2>Arcue ut vel commodo</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
+								<h2>结束语</h2>
+								<p>当陪着你的人要下车的时候，即使再不舍，也要挥着手告别。</p>
 							</header>
-							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">Activate</a></li>
-								<li><a href="#" class="button fit">Learn More</a></li>
-							</ul>
+<!--							<ul class="actions stacked">-->
+<!--								<li><a href="#" class="button fit primary">Activate</a></li>-->
+<!--								<li><a href="#" class="button fit">More</a></li>-->
+<!--							</ul>-->
 						</div>
 					</section>
 
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://twitter.com/uguang666" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/uguang2003" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/uguang2003" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://t.me/uguang666/" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
+							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
+							<li><a href="mailto:uguang2003@email.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
+						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">我的博客已运行：<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
 						<ul class="copyright">
 							<li>&copy; UG666</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
-						<div style="color: #919397;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">我的博客已运行：<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
 					</footer>
 
 			</div>

@@ -2253,6 +2253,7 @@ input, select, textarea {
 				-ms-flex-direction: column;
 				flex-direction: column;
 				margin-left: 0;
+				margin-top: 1em;
 				width: 100% !important;
 			}
 
@@ -3753,11 +3754,15 @@ input, select, textarea {
 /* CTA */
 
 	#cta .inner {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		max-width: 45em;
+		/*display: -moz-flex;*/
+		/*display: -webkit-flex;*/
+		/*display: -ms-flex;*/
+		/*display: flex;*/
+		/*max-width: 46em;*/
+		padding-right: 0;
+		width: 100%;
+		display: block;
+		text-align: center;
 	}
 
 		#cta .inner header {
@@ -3765,8 +3770,8 @@ input, select, textarea {
 			-webkit-order: 1;
 			-ms-order: 1;
 			order: 1;
-			padding-right: 3em;
-			width: 70%;
+			/*padding-right: 3em;*/
+			/*width: 70%;*/
 		}
 
 			#cta .inner header p {
@@ -3791,6 +3796,7 @@ input, select, textarea {
 				#cta .inner header {
 					padding-right: 0;
 					width: 100%;
+					padding-bottom: 1em;
 				}
 
 				#cta .inner .actions {
@@ -3798,6 +3804,7 @@ input, select, textarea {
 					margin-right: auto;
 					max-width: 20em;
 					width: 100%;
+					margin-top: 1em;
 				}
 
 		}
