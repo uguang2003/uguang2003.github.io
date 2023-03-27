@@ -4,7 +4,7 @@
     "href": "https://www.bilibili.com/",
     "img": "./images/resimg/image-20201214160701358.png",
     "name": "B站",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "众所周知，B站是一个学习网站"
   },
   {
@@ -12,7 +12,7 @@
     "href": "https://www.imooc.com/",
     "img": "./images/resimg/image-20201214160721192.png",
     "name": "慕课网",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "互联网IT技能免费学习网站"
   },
   {
@@ -20,7 +20,7 @@
     "href": "https://www.xuetangx.com/",
     "img": "./images/resimg/image-20201214160744900.png",
     "name": "学堂在线",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "中文大规模开发在线课程"
   },
   {
@@ -28,7 +28,7 @@
     "href": "http://www.dxzy163.com/",
     "img": "./images/resimg/image-20201214160820923.png",
     "name": "大学资源网",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "考研、外语、电脑等课程视频"
   },
   {
@@ -36,7 +36,7 @@
     "href": "https://www.mooc.cn/",
     "img": "./images/resimg/image-20201214161128810.png",
     "name": "MOOC中国",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "致力于分享最好的慕课"
   },
   {
@@ -44,7 +44,7 @@
     "href": "https://www.jikexueyuan.com/",
     "img": "./images/resimg/image-20201214161148780.png",
     "name": "极客学院",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "国内领先的IT在线咨询及教育平台"
   },
   {
@@ -52,7 +52,7 @@
     "href": "https://open.163.com/",
     "img": "./images/resimg/image-20201214161215628.png",
     "name": "网易公开课",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "一个公开的免费课程平台"
   },
   {
@@ -60,7 +60,7 @@
     "href": "https://www.yxgapp.com/",
     "img": "./images/resimg/image-20201214161315931.png",
     "name": "译学馆",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "一个专注于译制知识视频的平台"
   },
   {
@@ -68,7 +68,7 @@
     "href": "https://www.doyoudo.com/",
     "img": "./images/resimg/image-20201214161355991.png",
     "name": "doyoudo",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "设计领域在线学习平台"
   },
   {
@@ -76,7 +76,7 @@
     "href": "https://www.51zxw.net/",
     "img": "./images/resimg/image-20201214161440036.png",
     "name": "我要自学网",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "提高全民的电脑水平"
   },
   {
@@ -84,7 +84,7 @@
     "href": "https://www.ted.com/",
     "img": "./images/resimg/1607961043(1).jpg",
     "name": "TED",
-    "category": "视屏类",
+    "category": "视频类",
     "introduce": "最优质的演讲"
   },
   {
@@ -627,9 +627,9 @@
     "type": "4",
     "href": "http://www.shipinyu.com/",
     "img": "./images/resimg/image-20201214085307102.png",
-    "name": "视屏鱼",
+    "name": "视频鱼",
     "category": "影视剧",
-    "introduce": "视屏下载"
+    "introduce": "视频下载"
   },
   {
     "type": "4",
@@ -651,7 +651,7 @@
     "type": "4",
     "href": "http://www.kuhuiv.com/",
     "img": "./images/resimg/image-20201214084749903.png",
-    "name": "酷绘视屏",
+    "name": "酷绘视频",
     "category": "影视剧",
     "introduce": "在线看剧"
   },
@@ -693,7 +693,7 @@
     "img": "./images/resimg/image-20201213233905994.png",
     "name": "ZzzFun",
     "category": "影视剧",
-    "introduce": "动漫视屏网"
+    "introduce": "动漫视频网"
   },
   {
     "type": "4",
