@@ -2432,7 +2432,7 @@ input, select, textarea {
 		text-transform: uppercase;
 		white-space: nowrap;
 		overflow: hidden;
-		text-overflow: ellipsis;
+		/*text-overflow: ellipsis;*/
 	}
 
 		input[type="submit"]:hover,
