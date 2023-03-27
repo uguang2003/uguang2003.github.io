@@ -73,7 +73,7 @@
 			}
 		</style>
 	</head>
-	<body class="landing is-preload">
+	<body class="landing is-preload" style="user-select: none">
 
 		<!-- Page Wrapper -->
 			<div class="bg">
@@ -162,7 +162,7 @@
 							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
 							<li><a href="mailto:uguang2003@email.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
-						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">博客已运行:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
+						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">客栈已运行:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
 						<ul class="copyright">
 							<li>&copy; UG666</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
@@ -239,6 +239,10 @@
 				// 显示邮箱
 				$('.fa-envelope').popup();
 			</script>
+
+			<!--鼠标点击后显示的样式-->
+			<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
+			<script type="text/javascript" src="./assets/js/djtx.js"></script>
 
 	</body>
 </html>

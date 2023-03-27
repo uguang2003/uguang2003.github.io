@@ -2424,7 +2424,7 @@ input, select, textarea {
 		font-weight: 600;
 		height: 3.125em;
 		letter-spacing: 0.225em;
-		line-height: 3.125em;
+		/*line-height: 3.125em;*/
 		max-width: 30em;
 		padding: 0 2.75em;
 		text-align: center;
@@ -2530,7 +2530,7 @@ input, select, textarea {
 			button,
 			.button {
 				height: 3.75em;
-				line-height: 3.75em;
+				/*line-height: 3.75em;*/
 			}
 
 		}

@@ -4,7 +4,8 @@
 		$body = $('body'),
 		$wrapper = $('#page-wrapper'),
 		$banner = $('#banner'),
-		$header = $('#header');
+		$header = $('#header'),
+		$music = $('#music');
 
 	// Breakpoints.
 		breakpoints({
@@ -68,8 +69,8 @@
 			$banner.scrollex({
 				bottom:		$header.outerHeight() + 1,
 				terminate:	function() { $header.removeClass('alt'); },
-				enter:		function() { $header.addClass('alt'); },
-				leave:		function() { $header.removeClass('alt'); }
+				enter:		function() { $header.addClass('alt'); $music.addClass('display-none');},
+				leave:		function() { $header.removeClass('alt'); $music.removeClass('display-none');}
 			});
 
 		}
