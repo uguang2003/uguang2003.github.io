@@ -6,6 +6,7 @@
 		$banner = $('#banner'),
 		$header = $('#header'),
 		$music = $('#music');
+		$musicflag = $('#music-flag');
 
 	// Breakpoints.
 		breakpoints({
@@ -69,10 +70,21 @@
 			$banner.scrollex({
 				bottom:		$header.outerHeight() + 1,
 				terminate:	function() { $header.removeClass('alt'); },
-				enter:		function() { $header.addClass('alt'); $music.addClass('display-none');},
-				leave:		function() { $header.removeClass('alt'); $music.removeClass('display-none');}
+				enter:		function() { $header.addClass('alt');},
+				leave:		function() { $header.removeClass('alt');}
 			});
 
 		}
+
+		if ($banner.length > 0 && $music.hasClass('display-none')) {
+			$window.on('resize', function() { $window.trigger('scroll'); });
+
+			$musicflag.scrollex({
+				bottom:		$header.outerHeight() + 8,
+				enter:		function() { $music.addClass('display-none');},
+				leave:		function() {$music.removeClass('display-none');}
+			});
+		}
+
 
 })(jQuery);

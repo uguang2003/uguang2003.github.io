@@ -1,0 +1,27 @@
+[
+  {
+    "img": "./images/avatar.jpg",
+    "name": "头像",
+    "introduce": "没错，这就是我的头像"
+  },
+  {
+    "img": "./images/bg.webp",
+    "name": "背景",
+    "introduce": "没错，这就是我的背景"
+  },
+  {
+    "img": "./images/dasheng.jpg",
+    "name": "大圣",
+    "introduce": "没错，这就是大圣"
+  },
+  {
+    "img": "./images/xiaoyan.jpg",
+    "name": "萧炎",
+    "introduce": "没错，这就是萧炎"
+  },
+  {
+    "img": "./images/caocao.jpg",
+    "name": "曹操",
+    "introduce": "没错，这就是曹操"
+  }
+]

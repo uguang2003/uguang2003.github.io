@@ -62,7 +62,7 @@
 		<script>
 			$(function() {
 				$.ajax({
-					url: "resources.json",//同文件夹下的json文件路径
+					url: "./json/resources.json",//同文件夹下的json文件路径
 					type: "GET",//请求方式为get
 					dataType: "json", //返回数据格式为json
 					success: function(data) {//请求成功完成后要执行的方法
@@ -222,6 +222,7 @@
 										<ul>
 											<li><a href="./index.html">主页</a></li>
 											<li><a href="./resources.html">资源库</a></li>
+											<li><a href="./pictures.html">照片墙</a></li>
 											<li><a href="./about.html">关于我</a></li>
 										</ul>
 									</div>
@@ -386,7 +387,7 @@
 							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
 							<li><a href="mailto:uguang2003@email.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
-						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">客栈已运行:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
+						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">客栈已营业:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
 						<ul class="copyright">
 							<li>&copy; UG666</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>

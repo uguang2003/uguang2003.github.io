@@ -1,5 +1,5 @@
 body{
-    background-image: url("../images/backimg1.jpg");
+    /*background-image: url("../images/backimg1.jpg");*/
     background-attachment:fixed;
     background-size: 100%;
     no-repeat: center top;
@@ -560,8 +560,7 @@ body{
     width: 100%;
     object-fit: cover;
     cursor: pointer;
-    outline: 0px;
-    background-image: url(https://a-oss.zmki.cn/2020/20200212-fcf30f3d33625.gif);
+    outline: 0;
     background-size: 100% 100%;
 }
 
