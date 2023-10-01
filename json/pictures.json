@@ -1,5 +1,35 @@
 [
   {
+    "img": "./images/pictures/24-10-01/(5).jpg",
+    "name": "南昌火车站 23年6月",
+    "introduce": "该回去的还是得回去"
+  },
+  {
+    "img": "./images/pictures/24-10-01/(10).jpg",
+    "name": "509教室 23年5月",
+    "introduce": "509团建，看电影啦，主要是零食满满一桌子，真香"
+  },
+  {
+    "img": "./images/pictures/24-10-01/(4).png",
+    "name": "学校气象塔 23年6月",
+    "introduce": "学校的气象塔也就那样"
+  },
+  {
+    "img": "./images/pictures/24-10-01/(3).jpg",
+    "name": "是别墅 23年5月",
+    "introduce": "新媒体团建，我在里面摇把子打游戏，以后买一栋下来"
+  },
+  {
+    "img": "./images/pictures/24-10-01/(2).jpg",
+    "name": "学校宿舍门口 23年4月",
+    "introduce": "我的天哪，这景色太美了，学校还有瀑布"
+  },
+  {
+    "img": "./images/pictures/24-10-01/(1).jpg",
+    "name": "秋水广场喷泉 23年2月14日",
+    "introduce": "和小伙伴们一起看喷泉喽"
+  },
+  {
     "img": "./images/avatar.jpg",
     "name": "头像",
     "introduce": "没错，这就是我的头像"
