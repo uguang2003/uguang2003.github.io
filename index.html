@@ -98,6 +98,86 @@
 				}
 			}
 		</style>
+
+		<script src="./assets/js/jquery.min.js"></script>
+		<script>
+			let total;
+			let datas;
+			let page = getQueryString("page") || 1;
+			//页面大小
+			let pageSize = 5;
+			function getQueryString(name) {
+				const url_string = window.location.href
+				const url = new URL(url_string);
+				return url.searchParams.get(name);
+			}
+			//上一页
+			function prePage() {
+				page--;
+				if (page < 1) {
+					page = 1;
+				}
+				eachData(page)
+			}
+			//下一页
+			function nextPage() {
+				page++;
+				if (page > parseInt(parseInt(total) / parseInt(pageSize)) + 1) {
+					page = parseInt(parseInt(total) / parseInt(pageSize)) + 1;
+				}
+				console.log(pageSize)
+				console.log(total)
+				console.log(page)
+				eachData(page)
+			}
+
+			$(function() {
+				$.ajax({
+					url: "./json/essay.json",//同文件夹下的json文件路径
+					type: "GET",//请求方式为get
+					dataType: "json", //返回数据格式为json
+					async:false,
+					success: function(data) {//请求成功完成后要执行的方法
+						const $pages = $("#pages");
+
+						//获取json数据的长度
+						total = data.length;
+						datas = data;
+
+						eachData(page)
+						$pages.html("第" + page + "/" + parseInt(total / pageSize + 1) + "页,"+"共" + total + "篇文章");
+					}
+				})
+			})
+
+			//遍历数据的函数
+			function eachData(page) {
+				//获取jsonTip的div
+				const $jsontip = $("#two");
+				//存储数据的变量
+				let strHtml = "";
+				//清空内容
+				$jsontip.empty();
+				//将获取到的json格式数据遍历到div中
+				$.each(datas, function(infoIndex, info) {
+					//判断是否为当前页
+					if (infoIndex < (page - 1) * pageSize || infoIndex >= page * pageSize) {
+						return true;
+					}
+					//拼接html
+					strHtml += "<section class=\"spotlight\">" +
+						"<a href=\"essay.html?essayId=+"+info['essayId']+"+\" class=\"image\"><img src="+ info['img'] +" alt=\"\"/></a>" +
+						"<div class=\"content\">" +
+						"<h2>" + info['title'] + "</h2>" +
+						"<p>" + info['introduction'] + "</p>" +
+						"</div>" +
+						"</section>"
+				})
+
+				//显示处理后的数据
+				$jsontip.html(strHtml);
+			}
+		</script>
 	</head>
 	<body class="landing is-preload" style="user-select: none">
 
@@ -176,30 +256,15 @@
 
 				<!-- Two -->
 					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="images/dasheng.jpg" alt="" /></div><div class="content">
-								<h2>大圣，此去欲何</h2>
-								<p>“大圣，此去欲何?”，
-									“踏南天，碎凌霄”，
-									“若一去不回……”，
-									“便一去不回”</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/xiaoyan.jpg" alt="" /></div><div class="content">
-								<h2>莫欺少年穷</h2>
-								<p>
-									一个斗码大陆苦逼的三段码之气的少年，并没有神秘戒指中码老的帮助，但总有一天，我会成为斗码大陆中码帝一般的存在。三十年河东，三十年河西，莫欺少年穷。
-								</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/caocao.jpg" alt="" /></div><div class="content">
-								<h2>无名之辈</h2>
-								<p>你又怎么知道，今天的无名之辈，来日会不会名震天下。假如有一天，他们真的名震天下了，你会不会后悔为今天的所作所为追悔莫及呢？</p>
-							</div>
-						</section>
 					</section>
+				<!-- 分页 -->
+					<div class="wrapper alt" style="margin: 10px 0; position: relative; width: 100%;">
+						<div style="width: 90%; margin: 0 auto;">
+							<button id="pre" onclick="prePage()">上一页</button>
+							<div style="position: absolute;top: 10px;left: 60px;right: 0;bottom: 0; width: 200px;margin: auto;" id="pages"></div>
+							<button style="float: right;" id="next" onclick="nextPage()">下一页</button>
+						</div>
+					</div>
 
 				<!-- Three -->
 					<section id="three" class="wrapper style3 special">
@@ -293,16 +358,15 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 
 <!--			<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>-->
 <!--			<script src="https://cdn.bootcdn.net/ajax/libs/jquery.scrollex/0.2.1/jquery.scrollex.min.js"></script>-->
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="./assets/js/jquery.scrolly.min.js"></script>
+			<script src="./assets/js/browser.min.js"></script>
+			<script src="./assets/js/breakpoints.min.js"></script>
+			<script src="./assets/js/util.js"></script>
+			<script src="./assets/js/main.js"></script>
 			<script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
 
 			<script>
