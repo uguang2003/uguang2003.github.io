@@ -6,7 +6,6 @@
 		<link rel="icon" href="./images/favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.5.0/semantic.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="./assets/css/me.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
@@ -29,59 +28,6 @@
 				background: rgb(66,76,86);
 			}
 		</style>
-
-		<script src="./assets/js/jquery.min.js"></script>
-		<script src="https://cdn.bootcdn.net/ajax/libs/markdown.js/0.5.0/markdown.min.js"></script>
-		<script>
-			function getQueryString(name) {
-				const url_string = window.location.href
-				const url = new URL(url_string);
-				return url.searchParams.get(name);
-			}
-
-			$(function() {
-				$.ajax({
-					url: "./json/essay.json",//同文件夹下的json文件路径
-					type: "GET",//请求方式为get
-					dataType: "json", //返回数据格式为json
-					async:false,
-					success: function(data) {//请求成功完成后要执行的方法
-						//获取jsonTip的div
-						const $jsontip = $("#content");
-						const $title = $("#title");
-						const $date = $("#date");
-						const $image = $("#image");
-						//存储数据的变量
-						let strHtml = "";
-						let title = "";
-						let date = "";
-						//清空内容
-						$jsontip.empty();
-						let essayId = getQueryString("essayId")
-						if(essayId === undefined || essayId === null || essayId === ""){
-							location.href = "./404.html"
-						}
-
-						//遍历数据
-						$.each(data, function(infoIndex, info) {
-							if(info['essayId'] === essayId){
-								strHtml += markdown.toHTML(info['content'])
-								title += info['title']
-								date += info['date']
-								$image.attr("src", info['img'])
-							}
-						})
-						if (strHtml === ""){
-							location.href = "./404.html"
-						}
-						//显示处理后的数据
-						$jsontip.html(strHtml);
-						$title.html(title);
-						$date.html(date);
-					}
-				})
-			})
-		</script>
 	</head>
 	<body class="landing is-preload">
 
@@ -109,64 +55,20 @@
 					</header>
 
 
-				<!--顶部背景图片-->
-				<div class="m-bg-type_outer" style="width: 100%;height: 18em;">
-					<img id="image" src="" alt="" class="ui m-bg image" style="width: 100%;height: 100%;">
-					<div class="m-bg-class_cover">
-						<div class="ui container" style="position: relative ;bottom: -540px;">
-							<h2 id="title" class="m-font-size-title-large" align="center">文章页</h2>
-							<div class="ui container" align="center" style="margin-top: -20px">
-								<div class="ui horizontal link list" align="center">
-									<div class="item">
-										<div class="ui orange basic label" style="font-size: 7px">转载</div>
-									</div>
-									<div class="item">
-										<i class="user outline outline icon m-font-size-text-mini"></i>
-										<a href="#" style="color: #ffffff;font-size: 15px">UG666</a>
-									</div>
-									<div class="item">
-										<i class="calendar icon m-font-size-text-mini"></i>
-										<span id="date" class="m-font-size-text-mini">2023-10-01</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+				<br>
+				<br>
+				<br>
+
+				<div class="ui m-opacity m-margin-top-max container">
+					<img src="./images/404.jpg" alt="" class="ui rounded bordered fluid image">
+				</div>
+				<div align="center">
+					<a class="button" href="./index.html" style="line-height: 40px; margin-top: 10px">返回首页</a>
 				</div>
 
-				<!--中间内容-->
-				<div id="waypoint" class="m-margin- animated fadeIn">
-					<div class="ui container m-opacity box-shadow-max">
-						<!--内容-->
-						<div class="ui attached padded segment">
-							<!--中间主要内容部分-->
-							<div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large" style="color: black">
-
-							</div>
-							<div class="ui horizontal divider">end</div>
-						</div>
-						<div id="goto" class="ui attached positive message">
-							<!--博客信息-->
-							<div class="ui middle aligned stackable grid">
-								<div class="nine wide column">
-									<ui class="list">
-										<li>作者：<span>UG666</span><a href="#" target="_blank">（联系作者）</a></li>
-										<li>发表时间：<span>2023-10-01 21:10</span></li>
-										<li>版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
-										<li>转载声明：如果是转载博主转载的文章，请附上原文链接</li>
-									</ui>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!--置顶图标-->
-				<div id="toolbar" class="m-padded-tb-large m-fixed m-right-bottom">
-					<a href="#" class="ui teal icon button" style="writing-mode: vertical-rl;padding-bottom: 85px">返回顶部</a>
-				</div>
-
-
+				<br>
+				<br>
+				<br>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -236,6 +138,7 @@
 					document.getElementById("htmer_time").innerHTML = currentTimeHtml;
 				}
 				setInterval(setTime, 1000);
+
 
 			</script>
 
