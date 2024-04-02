@@ -110,7 +110,7 @@ function animate(time) {
 
 function loadAudio(i) {
   document.getElementById("overlay").innerHTML =
-    '<div class="text-loading">大琳子 Please Wait 一下...</div>';
+    '<div class="text-loading">Please Wait 一下...</div>';
   const files = [
     "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Simon_Panrucker/Happy_Christmas_You_Guys/Simon_Panrucker_-_01_-_Snowflakes_Falling_Down.mp3",
     "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Dott/This_Christmas/Dott_-_01_-_This_Christmas.mp3",
@@ -135,7 +135,7 @@ function loadAudio(i) {
 
 function uploadAudio(event) {
   document.getElementById("overlay").innerHTML =
-    '<div class="text-loading">大琳子 Please Wait 一下...</div>';
+    '<div class="text-loading">Please Wait 一下...</div>';
   const files = event.target.files;
   const reader = new FileReader();
 

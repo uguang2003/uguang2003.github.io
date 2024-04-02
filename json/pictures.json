@@ -1,31 +1,136 @@
 [
   {
-    "img": "./images/pictures/24-10-01/(5).jpg",
+    "img": "./images/pictures/24-04-02/(56).jpg",
+    "name": "抚州站 24年2月",
+    "introduce": "回家过年了"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(53).jpg",
+    "name": "下雪了 24年2月",
+    "introduce": "这个雕像很牛"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(59).jpg",
+    "name": "又是打比赛 23年12月",
+    "introduce": "这个比赛我没什么好说的，我尽全力了，学弟差点火候(教你你又不听，sb!!),最后拿了个二等奖"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(65).jpg",
+    "name": "教室 23年10月10日",
+    "introduce": "第一天上课，我6点40多来，教室里一个人都没有"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(70).jpg",
+    "name": "新媒体办公室 23年10月",
+    "introduce": "又回到了这个败在我手上的地方"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(6).jpg",
+    "name": "该读书了 23年9月",
+    "introduce": "和兄弟晚上散步拍的，光打的好"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(38).jpg",
+    "name": "梦时代红绿灯 23年9月",
+    "introduce": "天天都要经过这，堵的要死"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(16).jpg",
+    "name": "又来拍照了 23年9月",
+    "introduce": "这个引导线构图，视线聚焦中心"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(68).jpg",
+    "name": "梓宏做的鱼 23年9月",
+    "introduce": "这鱼真不错"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(67).jpg",
+    "name": "穹妹 23年9月",
+    "introduce": "闲的无聊，画个穹妹当老婆"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(34).jpg",
+    "name": "工作地门口的一条街 23年9月",
+    "introduce": "那个时候天天拍拍拍，都拍烦了"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(19).jpg",
+    "name": "工作 23年9月",
+    "introduce": "在医院做新媒体运营，还不错"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(76).jpg",
+    "name": "UniApp学习 23年8月19日",
+    "introduce": "闲的没事，学了一下UniApp"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(10).jpg",
+    "name": "回南昌上班了 23年7月5日",
+    "introduce": "有时候感觉生命挺伟大的"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(41).jpg",
+    "name": "新葡京 23年7月4日",
+    "introduce": "来着是为了拿发财车的车票，不是来赌博的"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(78).jpg",
+    "name": "澳门 23年7月4日",
+    "introduce": "澳门的指路牌"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(82).jpg",
+    "name": "珠海渔女 23年7月3日",
+    "introduce": "UG第一次去海边，真不错"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(87).jpg",
+    "name": "三等奖 23年7月2日",
+    "introduce": "比赛感觉是走个过场"
+  },
+  {
+    "img": "./images/pictures/24-04-02/(88).jpg",
+    "name": "去澳门喽 23年7月1日",
+    "introduce": "去澳门打比赛"
+  },
+  {
+    "img": "./images/pictures/23-10-01/(5).jpg",
     "name": "南昌火车站 23年6月",
     "introduce": "该回去的还是得回去"
   },
   {
-    "img": "./images/pictures/24-10-01/(10).jpg",
+    "img": "./images/pictures/24-04-02/(93).jpg",
+    "name": "软件1班最后一次班会 23年6月",
+    "introduce": "最后一次班会了,讲讲道理，人全齐，很棒"
+  },
+  {
+    "img": "./images/pictures/23-10-01/(10).jpg",
     "name": "509教室 23年5月",
     "introduce": "509团建，看电影啦，主要是零食满满一桌子，真香"
   },
   {
-    "img": "./images/pictures/24-10-01/(4).png",
+    "img": "./images/pictures/23-10-01/(4).png",
     "name": "学校气象塔 23年6月",
     "introduce": "学校的气象塔也就那样"
   },
   {
-    "img": "./images/pictures/24-10-01/(3).jpg",
+    "img": "./images/pictures/24-04-02/(1).jpg",
+    "name": "新媒体团建 23年5月",
+    "introduce": "真UG瞎弹真钢琴"
+  },
+  {
+    "img": "./images/pictures/23-10-01/(3).jpg",
     "name": "是别墅 23年5月",
     "introduce": "新媒体团建，我在里面摇把子打游戏，以后买一栋下来"
   },
   {
-    "img": "./images/pictures/24-10-01/(2).jpg",
+    "img": "./images/pictures/23-10-01/(2).jpg",
     "name": "学校宿舍门口 23年4月",
     "introduce": "我的天哪，这景色太美了，学校还有瀑布"
   },
   {
-    "img": "./images/pictures/24-10-01/(1).jpg",
+    "img": "./images/pictures/23-10-01/(1).jpg",
     "name": "秋水广场喷泉 23年2月14日",
     "introduce": "和小伙伴们一起看喷泉喽"
   },
