@@ -7,10 +7,10 @@ let clickCount = 0;  // 记录点击 No 的次数
 
 // No 按钮的文字变化
 const noTexts = [
-    "？你认真的吗…", 
-    "要不再想想？", 
-    "不许选这个！ ", 
-    "我会很伤心…", 
+    "？你认真的吗…",
+    "要不再想想？",
+    "不许选这个！ ",
+    "我会很伤心…",
     "不行:("
 ];
 
@@ -23,8 +23,15 @@ noButton.addEventListener("click", function() {
     yesButton.style.transform = `scale(${yesSize})`;
 
     // 挤压 No 按钮，每次右移 100px
-    let noOffset = clickCount * 50;
-    noButton.style.transform = `translateX(${noOffset}px)`;
+    //如果是手机端，每次下移100px
+    if (window.innerWidth < 768) {
+        let noOffset = clickCount * 25;
+        noButton.style.transform = `translateY(${noOffset}px)`;
+    }else {
+        let noOffset = clickCount * 50;
+        noButton.style.transform = `translateX(${noOffset}px)`;
+    }
+
 
     // **新增：让图片和文字往上移动**
     let moveUp = clickCount * 25; // 每次上移 20px
