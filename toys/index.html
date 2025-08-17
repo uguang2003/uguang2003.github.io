@@ -1,36 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>通往新大陆的路口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: white;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .toys-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .toy-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+    
+    .toy-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      color: white;
+    }
+    
+    .toy-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .toy-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .toy-card p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .toys-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .toy-card {
+        padding: 1.5rem;
+      }
+    }
+    
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      text-decoration: none;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <a href="./mario/index.html">点我去超级玛丽小游戏</a>
-  <br>
-  <a href="./mystory/index.html">点我去表白页</a>
-  <br>
-  <a href="./qixi/index.html">点我去教你敲代码</a>
-  <br>
-  <a href="./saolei/index.html">点我扫雷</a>
-  <br>
-  <a href="./teacher/index.html">点我去教师节祝福</a>
-  <br>
-  <a href="./zqj/index.html">点我去中秋节</a>
-  <br>
-  <a href="./guoqingjie/index.html">点我去国庆节换头像</a>
-  <br>
-  <a href="./aixin/index.html">点我去爱心</a>
-  <br>
-  <a href="./aixin2/index.html">点我去爱心2</a>
-  <br>
-  <a href="./biubiu/index.html">点我去biubiu</a>
-  <br>
-  <a href="./3D/index.html">点我去3D相册</a>
-  <br>
-  <a href="./christmas/index.html">点我去圣诞节</a>
-  <br>
-  <a href="./vivo50/index.html">点我去vivo50</a>
+  <a href="../index.html" class="back-btn">← 返回主页</a>
+  
+  <div class="container">
+    <div class="header">
+      <h1>🎮 游戏乐园</h1>
+      <p>欢迎来到UG的游戏世界，选择你喜欢的游戏开始探索吧！</p>
+    </div>
+    
+    <div class="toys-grid">
+      <a href="./mario/index.html" class="toy-card">
+        <span class="toy-icon">🍄</span>
+        <h3>超级玛丽</h3>
+        <p>经典的超级马里奥小游戏，重温童年回忆</p>
+      </a>
+      
+      <a href="./mystory/index.html" class="toy-card">
+        <span class="toy-icon">💖</span>
+        <h3>浪漫表白</h3>
+        <p>用代码写下你的爱意，创造专属的表白页面</p>
+      </a>
+      
+      <a href="./qixi/index.html" class="toy-card">
+        <span class="toy-icon">💻</span>
+        <h3>编程教学</h3>
+        <p>七夕特别版，教你用代码表达爱意</p>
+      </a>
+      
+      <a href="./saolei/index.html" class="toy-card">
+        <span class="toy-icon">💣</span>
+        <h3>扫雷游戏</h3>
+        <p>经典的扫雷游戏，考验你的逻辑思维</p>
+      </a>
+      
+      <a href="./teacher/index.html" class="toy-card">
+        <span class="toy-icon">👩‍🏫</span>
+        <h3>教师节祝福</h3>
+        <p>送给老师最真挚的节日祝福</p>
+      </a>
+      
+      <a href="./zqj/index.html" class="toy-card">
+        <span class="toy-icon">🌕</span>
+        <h3>中秋节</h3>
+        <p>中秋佳节特别页面，月圆人团圆</p>
+      </a>
+      
+      <a href="./guoqingjie/index.html" class="toy-card">
+        <span class="toy-icon">🇨🇳</span>
+        <h3>国庆换头像</h3>
+        <p>为你的头像添加爱国元素</p>
+      </a>
+      
+      <a href="./aixin/index.html" class="toy-card">
+        <span class="toy-icon">❤️</span>
+        <h3>CSS爱心</h3>
+        <p>用纯CSS绘制的浪漫爱心动画</p>
+      </a>
+      
+      <a href="./aixin2/index.html" class="toy-card">
+        <span class="toy-icon">💕</span>
+        <h3>爱心动画2</h3>
+        <p>更多样式的爱心动画效果</p>
+      </a>
+      
+      <a href="./biubiu/index.html" class="toy-card">
+        <span class="toy-icon">🎯</span>
+        <h3>BiuBiu射击</h3>
+        <p>简单有趣的射击小游戏</p>
+      </a>
+      
+      <a href="./3D/index.html" class="toy-card">
+        <span class="toy-icon">📸</span>
+        <h3>3D相册</h3>
+        <p>炫酷的3D相册展示效果</p>
+      </a>
+      
+      <a href="./christmas/index.html" class="toy-card">
+        <span class="toy-icon">🎄</span>
+        <h3>圣诞节</h3>
+        <p>圣诞节特别页面，感受节日氛围</p>
+      </a>
+      
+      <a href="./vivo50/index.html" class="toy-card">
+        <span class="toy-icon">📱</span>
+        <h3>Vivo50</h3>
+        <p>Vivo手机主题展示页面</p>
+      </a>
+    </div>
+  </div>
 </body>
 </html>

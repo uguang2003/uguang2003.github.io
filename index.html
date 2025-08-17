@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>UG666-撑伞少年</title>
+		<title>UG-撑伞少年</title>
 		<meta charset="utf-8" />
 		<link rel="icon" href="./images/favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -78,6 +78,71 @@
 				-webkit-tap-highlight-color:rgba(0,0,0,0);
 			}
 
+			/* 卡片样式 */
+			.card-container {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+				padding: 2rem 0;
+			}
+			
+			.card {
+				background: rgba(255, 255, 255, 0.05);
+				border-radius: 15px;
+				padding: 2rem;
+				text-align: center;
+				transition: all 0.3s ease;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(10px);
+				cursor: pointer;
+				text-decoration: none;
+				display: block;
+				color: inherit;
+			}
+			
+			.card:hover {
+				transform: translateY(-5px);
+				background: rgba(255, 255, 255, 0.1);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+				text-decoration: none;
+				color: inherit;
+			}
+			
+			.card i {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				color: #64B5F6;
+			}
+			
+			.card h3 {
+				margin: 1rem 0 0.5rem 0;
+				font-size: 1.5rem;
+				font-weight: 600;
+			}
+			
+			.card p {
+				color: #C1CEE4;
+				margin: 0;
+				font-size: 0.9rem;
+				line-height: 1.5;
+			}
+			
+			@media screen and (max-width: 768px) {
+				.card-container {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+					padding: 1rem 0;
+				}
+				
+				.card {
+					padding: 1.5rem;
+				}
+				
+				.card i {
+					font-size: 2.5rem;
+				}
+			}
+
 			@media screen and (max-width: 736px){
 				.m-font-size-text-init-title{
 					margin-top: 1em;
@@ -96,6 +161,34 @@
 					margin-top: 2em;
 				}
 			}
+
+			/* 个人信息部分样式 */
+			.spotlight .content h3 {
+				color: #64B5F6;
+				margin: 1.5rem 0 0.5rem 0;
+				font-size: 1.2rem;
+			}
+			
+			.spotlight .content p strong {
+				color: #ffffff;
+				font-weight: 600;
+			}
+			
+			.spotlight .image {
+				border-radius: 15px;
+				overflow: hidden;
+			}
+			
+			.spotlight .image img {
+				border-radius: 15px;
+			}
+			
+			@media screen and (max-width: 980px) {
+				.spotlight .image {
+					text-align: center;
+					padding: 2rem;
+				}
+			}
 		</style>
 	</head>
 	<body class="landing is-preload" style="user-select: none">
@@ -104,7 +197,7 @@
 			<div id="page-wrapper">
 				<!-- 头部 -->
 					<header id="header" class="alt">
-						<h1><a href="./index.html">UG666</a></h1>
+						<h1><a href="./index.html">UG</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
@@ -112,7 +205,6 @@
 									<div id="menu">
 										<ul>
 											<li><a href="./index.html">主页</a></li>
-											<li><a href="./resources.html">资源库</a></li>
 											<li><a href="./pictures.html">照片墙</a></li>
 										</ul>
 									</div>
@@ -129,24 +221,80 @@
 								<div class="bgImg"></div>
 							</div>
 
-							<h2>UG666</h2>
+							<h2>UG</h2>
 							<p class="m-font-size-text-init-title"><span>你不能给两个人打伞</span></p>
 							<p class="m-font-size-text-init-title"><span>我的意思是</span></p>
 							<p class="m-font-size-text-init-title"><span>二选一的时候记得放弃我</span></p>
 							<p class="m-font-size-text-init-title"><span>毕竟我,不想做别人的选择</span></p>
 
 						</div>
-						<a href="#one" class="more scrolly">更多</a>
+						<a href="#one" class="more scrolly">更多<br><i class="fa fa-arrow-down"></i></a>
 					</section>
 
 				<!-- 第一部分 -->
 					<section id="one" class="wrapper style1 special">
 						<div class="inner">
 							<header class="major">
-								<h2>欢迎来到我的客栈，我是UG666</h2>
-								<p>既然来了，就往下面看下去吧</p>
+								<h2>欢迎来到我的网站，我是UG</h2>
+								<p>没想到你竟然敢往下滑，真是让我意外。</p>
 							</header>
 						</div>
+					</section>
+
+				<!-- 第二部分 -->
+					<section id="two" class="wrapper alt style2">
+						<section class="spotlight">
+							<div class="image"><img src="./images/me.jpg" alt="UG头像" /></div>
+							<div class="content">
+								<h2>关于我</h2>
+								<p>我是UG，一个斗码大陆苦逼的三段码之气的少年，并没有神秘戒指中码老的帮助，但总有一天，我会成为斗码大陆中码帝一样的存在。三十年河东，三十年河西，莫欺少年穷。</p>
+								<!-- <p>一名热爱编程和创造的开发者。貌似潘安，体壮心宽，学富五车，爱好广泛。会一点编程，一点剪辑，喜欢DIY，喜欢折腾。在代码的世界里探索无限可能，用技术实现创意想法。</p> -->
+								<p>我们在不停地奋斗和赶路的同时，别忘了，奖励一下自己。</p>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><i class="fa fa-code" style="font-size: 6rem; color: #64B5F6; display: flex; align-items: center; justify-content: center; height: 100%;"></i></div>
+							<div class="content" style="margin-top: 20px;">
+								<h2>技术栈</h2>
+								<h3>前端开发</h3>
+								<p>
+									<strong>语言：</strong>HTML5、CSS3、JavaScript、TypeScript<br />
+									<strong>框架：</strong>React、Vue.js、jQuery<br />
+									<strong>工具：</strong>Webpack、Vite、Sass、响应式设计
+								</p>
+								
+								<h3>后端开发</h3>
+								<p>
+									<strong>语言：</strong>Java、Node.js、Python<br />
+									<strong>框架：</strong>Spring Boot、Express.js<br />
+									<strong>数据库：</strong>MySQL、Redis、MongoDB
+								</p>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><i class="fa fa-gamepad" style="font-size: 6rem; color: #64B5F6; display: flex; align-items: center; justify-content: center; height: 100%;"></i></div>
+							<div class="content" style="margin-top: 20px;">
+								<h2>游戏开发</h2>
+								<p>
+									<strong>Unity：</strong>使用C#进行游戏开发，涵盖移动端和PC端<br />
+									<strong>Cocos Creator：</strong>JavaScript/TypeScript游戏开发<br />
+									<strong>游戏类型：</strong>2D横版游戏、休闲小游戏、射击游戏
+								</p>
+								<p>擅长游戏物理系统、AI逻辑、UI交互设计等</p>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><i class="fa fa-server" style="font-size: 6rem; color: #64B5F6; display: flex; align-items: center; justify-content: center; height: 100%;"></i></div>
+							<div class="content" style="margin-top: 20px;">
+								<h2>运维技能</h2>
+								<p>
+									<strong>服务器：</strong>Nginx配置、宝塔面板管理<br />
+									<strong>部署：</strong>网站部署、域名配置、SSL证书<br />
+									<strong>其他：</strong>Git版本控制、Linux基础操作<br />
+									<strong>博客运营：</strong>3年+ 博客运营经验，28篇技术文章，23000+ 访问量
+								</p>
+							</div>
+						</section>
 					</section>
 
 				<!-- 导航部分 -->
@@ -156,20 +304,38 @@
 								<h2>发光发热的宝藏</h2>
 								<p>宝藏就在下方</p>
 							</header>
-							<ul class="features">
-								<li class="icon fa-paper-plane a-content">
-									<a href="https://ug666.top/" target="_blank">
-										<h3>UG666</h3>
-										<p>真正的UG666博客</p>
-									</a>
-								</li>
-								<li class="icon solid fa-laptop a-content">
-									<a href="./toys/index.html" target="_blank">
-										<h3>一些玩具</h3>
-										<p>有超级马里奥，扫雷，CSS爱心</p>
-									</a>
-								</li>
-							</ul>
+							<div class="card-container">
+								<a href="https://blog.ug666.top/" target="_blank" class="card">
+									<i class="fa fa-paper-plane"></i>
+									<h3>UG666</h3>
+									<p>UG的博客</p>
+								</a>
+								<a href="./toys/index.html" target="_blank" class="card">
+									<i class="fa fa-laptop"></i>
+									<h3>UG的一些玩具</h3>
+									<p>有超级马里奥，扫雷，CSS爱心</p>
+								</a>
+								<a href="https://map.ug666.top/" target="_blank" class="card">
+									<i class="fa fa-map-marked-alt"></i>
+									<h3>UG地图世界</h3>
+									<p>探索世界，寻找方向</p>
+								</a>
+								<a href="https://music.ug666.top/" target="_blank" class="card">
+									<i class="fa fa-music"></i>
+									<h3>UG音乐播放器</h3>
+									<p>享受美妙的音乐时光</p>
+								</a>
+								<a href="http://cocos.ug666.top/" target="_blank" class="card">
+									<i class="fa fa-gamepad"></i>
+									<h3>Cocos游戏</h3>
+									<p>Cocos Creator游戏作品</p>
+								</a>
+								<a href="http://unity.ug666.top/" target="_blank" class="card">
+									<i class="fa fa-cube"></i>
+									<h3>Unity游戏</h3>
+									<p>Unity引擎游戏作品</p>
+								</a>
+							</div>
 						</div>
 					</section>
 
@@ -196,16 +362,16 @@
 				<!-- 底部 -->
 					<footer id="footer">
 						<ul class="icons">
-							<li><a href="https://twitter.com/uguang666" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.facebook.com/uguang2003" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://github.com/uguang2003" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://t.me/uguang666/" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
-							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
-							<li><a href="mailto:uguang2003@email.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://twitter.com/uguang666" target="_blank" class="icon brands fa fa-x-twitter"><span class="label">X</span></a></li>
+							<li><a href="https://www.facebook.com/uguang2003" target="_blank" class="icon brands fa fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/uguang2003" target="_blank" class="icon brands fa fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://t.me/uguang666/" target="_blank" class="icon brands fa fa-telegram"><span class="label">Telegram</span></a></li>
+							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" target="_blank" class="icon brands fa fa-tiktok"><span class="label">TikTok</span></a></li>
+							<li><a href="mailto:uguang2003@email.com" target="_blank" class="icon solid fa fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
-						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">客栈已营业:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
+						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">网站已生存:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
 						<ul class="copyright">
-							<li>&copy; 2022 - 2025 UG666</li>
+							<li>&copy; 2022 - 2025 UG</li>
 							<li> All rights reserved.</li>
 							<li><a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">赣ICP备2023014531号-1</a></li>
 						</ul>

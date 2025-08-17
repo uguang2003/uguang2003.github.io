@@ -5,12 +5,10 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="./images/favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<!--		<link href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.5.0/semantic.min.css" rel="stylesheet">-->
 		<link href="assets/js/viewer/viewer.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="./assets/css/me.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/pictures.css">
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			/*滚动条宽度*/
 			::-webkit-scrollbar {
@@ -30,71 +28,373 @@
 			::-webkit-scrollbar-thumb:hover {
 				background: rgb(66,76,86);
 			}
+
+			/* 修复图片查看器z-index问题，确保高于菜单 */
+			.viewer-container {
+				z-index: 20000 !important;
+			}
+			
+			.viewer-backdrop {
+				z-index: 19999 !important;
+			}
+			
+			.viewer-button {
+				z-index: 20001 !important;
+			}
+			
+			/* 确保关闭按钮可以正常点击，不被菜单遮挡 */
+			.viewer-button:before {
+				pointer-events: none;
+			}
+			
+			.viewer-button {
+				pointer-events: auto;
+			}
+
+			/* 分页样式 */
+			#pagination {
+				background: rgba(27, 31, 34, 0.85);
+				border-radius: 8px;
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				width: 80%;
+				max-width: 800px;
+				margin: 2em auto;
+			}
+
+			.pagination-info {
+				font-weight: 300;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.pagination-controls {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1em;
+			}
+
+			.pagination-controls .button {
+				margin: 0;
+				min-width: 80px;
+				transition: all 0.2s ease;
+			}
+
+			.pagination-controls .button:disabled {
+				opacity: 0.4;
+				cursor: not-allowed;
+			}
+
+			/* 图片加载动画 */
+			.thumb {
+				transition: opacity 0.6s ease, transform 0.6s ease;
+			}
+
+			.thumb img {
+				transition: transform 0.3s ease;
+			}
+
+			.thumb:hover img {
+				transform: scale(1.05);
+			}
+
+			/* location信息样式 */
+			.location-info {
+				margin-bottom: -1.3em !important;
+			}
+
+			/* 图片加载效果 */
+			.thumb img {
+				transition: opacity 0.3s ease, transform 0.3s ease;
+			}
+
+			.thumb:hover img {
+				transform: scale(1.05);
+			}
+			/* 响应式优化 */
+			@media screen and (max-width: 768px) {
+				#pagination {
+					width: 90%;
+					margin: 1.5em auto;
+					padding: 1em 0.5em;
+				}
+
+				.pagination-info {
+					font-size: 0.85em;
+					margin-bottom: 0.8em;
+					white-space: nowrap;
+				}
+
+				.pagination-controls .button {
+					min-width: 70px;
+					font-size: 0.9em;
+				}
+
+				.thumb h2 {
+					font-size: 1.1em;
+					margin-bottom: 0.4em;
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				#pagination {
+					width: 95%;
+					padding: 1em 0.3em;
+				}
+
+				.pagination-info {
+					font-size: 0.8em;
+				}
+
+				.pagination-controls {
+					gap: 0.8em;
+				}
+
+				.pagination-controls .button {
+					min-width: 60px;
+					font-size: 0.85em;
+					padding: 0.5em 0.8em;
+				}
+
+				/* 优化小屏幕下的图片卡片布局 */
+				.thumb h2 {
+					font-size: 1em;
+					margin-bottom: 0.3em;
+				}
+			}
+
+			/* 超小屏幕优化 */
+			@media screen and (max-width: 320px) {
+				.thumb h2 {
+					font-size: 0.9em;
+					margin-bottom: 0.25em;
+				}
+			}
 		</style>
 
 		<script src="assets/js/jquery.min.js"></script>
 
 		<script>
+			// 分页配置
+			const ITEMS_PER_PAGE = 12; // 每页显示的图片数量
+			let currentPage = 1;
+			let totalPages = 1;
+			let allPicturesData = [];
+			let gallery = null;
+
 			$(function() {
+				loadPicturesData();
+			});
+
+			// 加载图片数据
+			function loadPicturesData() {
 				$.ajax({
-					url: "./json/pictures.json",//同文件夹下的json文件路径
-					type: "GET",//请求方式为get
-					dataType: "json", //返回数据格式为json
-					async:false,
-					success: function(data) {//请求成功完成后要执行的方法
-						//获取jsonTip的div
-						const $jsontip = $("#main");
-						//存储数据的变量
-						let strHtml = "";
-						//清空内容
-						$jsontip.empty();
-						//将获取到的json格式数据遍历到div中
-						$.each(data, function(infoIndex, info) {
-							strHtml +=
-							"<div class=\"thumb\">" +
-								"<div class=\"image\">" +
-										"<img class=\"picture-zmki_px\" src=\"" + info['img'] + "\" alt=\"" + info['introduce'] + "\">" +
-								"</div>" +
-								"<h2>" + info['name'] + "</h2>" +
-							"</div>";
-						})
-
-						//显示处理后的数据
-						$jsontip.html(strHtml);
-
-						const gallery = new Viewer(document.getElementById('main'));
+					url: "./json/pictures.json",
+					type: "GET",
+					dataType: "json",
+					async: false,
+					success: function(data) {
+						allPicturesData = data;
+						totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+						
+						// 显示第一页
+						renderPage(1);
+						
+						// 创建分页控制器
+						createPagination();
+					},
+					error: function() {
+						console.error("加载图片数据失败");
 					}
-				})
-			})
+				});
+			}
+
+			// 渲染指定页面的图片
+			function renderPage(page) {
+				const $main = $("#main");
+				const startIndex = (page - 1) * ITEMS_PER_PAGE;
+				const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, allPicturesData.length);
+				
+				let strHtml = "";
+				
+				// 清空现有内容
+				$main.empty();
+				
+				// 生成当前页的图片HTML
+				for (let i = startIndex; i < endIndex; i++) {
+					const info = allPicturesData[i];
+					// 创建占位符图片，避免懒加载警告
+					// const placeholderSrc = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3E加载中...%3C/text%3E%3C/svg%3E";
+					const placeholderSrc = "";
+					
+					strHtml +=
+						"<div class=\"thumb\" style=\"opacity: 0; transform: translateY(20px);\">" +
+							"<div class=\"image\">" +
+								"<img class=\"picture-zmki_px\" src=\"" + placeholderSrc + "\" data-src=\"" + info['img'] + "\" alt=\"" + info['introduce'] + "\">" +
+							"</div>" +
+							"<h2>" + info['name'] + "</h2>" +
+							"<h2 class=\"location-info\">" + (info['location'] || '未知时间地点') + "</h2>" +
+						"</div>";
+				}
+				
+				// 插入HTML
+				$main.html(strHtml);
+				
+				// 实现图片懒加载
+				lazyLoadImages();
+				
+				// 添加渐显动画
+				setTimeout(() => {
+					$main.find('.thumb').each(function(index) {
+						const $thumb = $(this);
+						setTimeout(() => {
+							$thumb.css({
+								'opacity': '1',
+								'transform': 'translateY(0)',
+								'transition': 'opacity 0.6s ease, transform 0.6s ease'
+							});
+						}, index * 100);
+					});
+				}, 50);
+				
+				// 重新初始化图片查看器
+				setTimeout(() => {
+					if (gallery) {
+						gallery.destroy();
+					}
+					gallery = new Viewer(document.getElementById('main'), {
+						zIndex: 20000,
+						backdrop: true,
+						navbar: true,
+						title: true,
+						toolbar: {
+							zoomIn: true,
+							zoomOut: true,
+							oneToOne: true,
+							reset: true,
+							prev: true,
+							play: true,
+							next: true,
+							rotateLeft: true,
+							rotateRight: true,
+							flipHorizontal: true,
+							flipVertical: true,
+						}
+					});
+				}, 800);
+				
+				currentPage = page;
+				updatePaginationState();
+			}
+
+			// 图片懒加载函数
+			function lazyLoadImages() {
+				const images = document.querySelectorAll('img[data-src]');
+				
+				// 使用Intersection Observer API实现懒加载
+				if ('IntersectionObserver' in window) {
+					const imageObserver = new IntersectionObserver((entries, observer) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								const img = entry.target;
+								img.src = img.dataset.src;
+								img.removeAttribute('data-src');
+								
+								// 添加加载完成的淡入效果
+								img.onload = () => {
+									img.style.transition = 'opacity 0.3s ease';
+									img.style.opacity = '1';
+								};
+								
+								// 停止观察已加载的图片
+								observer.unobserve(img);
+							}
+						});
+					}, {
+						rootMargin: '50px 0px', // 提前50px开始加载
+						threshold: 0.1
+					});
+					
+					images.forEach(img => {
+						img.style.opacity = '0.8'; // 占位符半透明
+						imageObserver.observe(img);
+					});
+				} else {
+					// 降级处理：直接加载所有图片
+					images.forEach(img => {
+						img.src = img.dataset.src;
+						img.removeAttribute('data-src');
+					});
+				}
+			}
+
+			// 创建分页控制器
+			function createPagination() {
+				const paginationHtml = `
+					<div id="pagination" style="text-align: center; padding: 1.5em 1em;">
+						<div class="pagination-info" style="margin-bottom: 1em; color: #919397; font-size: 0.9em;">
+							第 <span id="current-page">${currentPage}</span> / <span id="total-pages">${totalPages}</span> 页 | 共 ${allPicturesData.length} 张图片
+						</div>
+						<div class="pagination-controls">
+							<button id="prev-page" class="button small" ${currentPage === 1 ? 'disabled' : ''}>上一页</button>
+							<button id="next-page" class="button small" ${currentPage === totalPages ? 'disabled' : ''}>下一页</button>
+						</div>
+					</div>
+				`;
+				
+				$('#main').after(paginationHtml);
+				
+				// 绑定分页事件
+				bindPaginationEvents();
+			}
+
+			// 绑定分页事件
+			function bindPaginationEvents() {
+				$('#prev-page').on('click', () => {
+					if (currentPage > 1) renderPage(currentPage - 1);
+				});
+				
+				$('#next-page').on('click', () => {
+					if (currentPage < totalPages) renderPage(currentPage + 1);
+				});
+			}
+
+			// 更新分页状态
+			function updatePaginationState() {
+				$('#current-page').text(currentPage);
+				$('#total-pages').text(totalPages);
+				
+				// 更新按钮状态
+				$('#prev-page').prop('disabled', currentPage === 1);
+				$('#next-page').prop('disabled', currentPage === totalPages);
+				
+				// 滚动到顶部
+				$('html, body').animate({
+					scrollTop: $('#main').offset().top - 100
+				}, 500);
+			}
+
+			// 键盘快捷键支持（简化版）
+			$(document).on('keydown', function(e) {
+				// 只在没有打开图片查看器时响应键盘事件
+				if (!$('.viewer-container').is(':visible')) {
+					switch(e.keyCode) {
+						case 37: // 左箭头 - 上一页
+							e.preventDefault();
+							if (currentPage > 1) renderPage(currentPage - 1);
+							break;
+						case 39: // 右箭头 - 下一页
+							e.preventDefault();
+							if (currentPage < totalPages) renderPage(currentPage + 1);
+							break;
+					}
+				}
+			});
 		</script>
 
 		<!--3D立体图样式-->
-		<style>
-			/*实现立体效果*/
-			.img {
-				width: 50px;
-				height: 50px;
-				margin: 0 auto;
-				transform-style: preserve-3d;
-				/*设置动画播放样式:动画对象 播放速度 时间 播放次数*/
-				animation: rotate linear 20s infinite;
-			}
-			/*实现动画效果*/
-			@-webkit-keyframes rotate {                /*sofari chrome*/
-				from {
-					transform: rotateX(0deg) rotateY(0deg);
-				}
-				to {
-					transform: rotateX(360deg) rotateY(360deg);
-				}
-			}
-			/*图片样式*/
-			.pic{
-				width: 200px;
-				height: 200px;
-				transform: rotateY(0deg) translateZ(100px);
-			}
-		</style>
 		<style>
 			/*最外层容器样式*/
 			.wrap {
@@ -115,8 +415,7 @@
 			}
 
 			/*动画旋转的方式*/
-			/*得到动画效果*/
-			@-moz-keyframes rotate {                     /*firefox*/
+			@keyframes rotate {
 				from {
 					transform: rotateX(0deg) rotateY(0deg);
 				}
@@ -124,22 +423,7 @@
 					transform: rotateX(360deg) rotateY(360deg);
 				}
 			}
-			@-webkit-keyframes rotate {                /*sofari chrome*/
-				from {
-					transform: rotateX(0deg) rotateY(0deg);
-				}
-				to {
-					transform: rotateX(360deg) rotateY(360deg);
-				}
-			}
-			@-o-keyframes rotate {                    /*opera*/
-				from {
-					transform: rotateX(0deg) rotateY(0deg);
-				}
-				to {
-					transform: rotateX(360deg) rotateY(360deg);
-				}
-			}
+
 			/*每张图片的样式*/
 			.cube div {
 				position: absolute;
@@ -260,11 +544,11 @@
 					<div class="cube">
 						<!--前面图片 -->
 						<div class="out_front">
-							<img src="./images/avatar.jpg" class="pic">
+							<img src="./images/me.jpg" class="pic">
 						</div>
 						<!--后面图片 -->
 						<div class="out_back">
-							<img src="./images/bg.webp" class="pic">
+							<img src="./images/bg.jpg" class="pic">
 						</div>
 						<!--左面图片 -->
 						<div class="out_left">
@@ -284,26 +568,26 @@
 						</div>
 						<!--小正方体 -->
 						<span class="in_front">
-                    <img src="./images/avatar.jpg" class="in_pic">
+                    <img src="./images/me.jpg" class="in_pic">
                 </span>
 
 						<span class="in_back">
-                    <img src="./images/avatar.jpg" class="in_pic">
+                    <img src="./images/me.jpg" class="in_pic">
                 </span>
 
 						<span class="in_left">
-                    <img src="./images/avatar.jpg" class="in_pic">
+                    <img src="./images/me.jpg" class="in_pic">
                 </span>
 
 						<span class="in_right">
-                    <img src="./images/avatar.jpg" class="in_pic">
+                    <img src="./images/me.jpg" class="in_pic">
                 </span>
 
 						<span class="in_top">
-                    <img src="./images/avatar.jpg" class="in_pic">
+                    <img src="./images/me.jpg" class="in_pic">
                 </span>
 						<span class="in_bottom">
-                    <img src="./images/avatar.jpg" class="in_pic">
+                    <img src="./images/me.jpg" class="in_pic">
                 </span>
 
 					</div>
@@ -311,19 +595,17 @@
 				</div>
 
 
-				<!-- Header -->
+				<!-- 头部 -->
 					<header id="header" class="alt">
 						<h1><a href="index.html">UG666</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<a href="#menu" class="menuToggle"><span>菜单</span></a>
 									<div id="menu">
 										<ul>
 											<li><a href="./index.html">主页</a></li>
-											<li><a href="./resources.html">资源库</a></li>
 											<li><a href="./pictures.html">照片墙</a></li>
-											<li><a href="./about.html">关于我</a></li>
 										</ul>
 									</div>
 								</li>
@@ -347,28 +629,27 @@
 				<div id="main"></div>
 
 
-				<!-- Footer -->
+				<!-- 底部 -->
 					<footer id="footer">
 						<ul class="icons">
-							<li><a href="https://twitter.com/uguang666" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.facebook.com/uguang2003" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://github.com/uguang2003" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://t.me/uguang666/" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
-							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
-							<li><a href="mailto:uguang2003@email.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://twitter.com/uguang666" target="_blank" class="icon brands fa fa-x-twitter"><span class="label">X</span></a></li>
+							<li><a href="https://www.facebook.com/uguang2003" target="_blank" class="icon brands fa fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/uguang2003" target="_blank" class="icon brands fa fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://t.me/uguang666/" target="_blank" class="icon brands fa fa-telegram"><span class="label">Telegram</span></a></li>
+							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" target="_blank" class="icon brands fa fa-tiktok"><span class="label">TikTok</span></a></li>
+							<li><a href="mailto:uguang2003@email.com" target="_blank" class="icon solid fa fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
-						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">客栈已营业:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
+						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">网站已生存:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
 						<ul class="copyright">
-							<li>&copy; UG666</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; 2022 - 2025 UG</li>
+							<li> All rights reserved.</li>
+							<li><a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">赣ICP备2023014531号-1</a></li>
 						</ul>
 					</footer>
 
 			</div>
 
 		<!-- Scripts -->
-
-
-
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
@@ -376,10 +657,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/viewer/viewer.min.js"></script>
-<!--			<script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>-->
-
 			<script>
-
 				// 运行时间统计
 				function secondToDate(second) {
 					if (!second) {
@@ -409,7 +687,7 @@
 				}
 				function setTime() {
 					/*此处为网站的创建时间*/
-					const create_time = Math.round(new Date(Date.UTC(2023, 3 - 1, 24, 19, 0, 0)).getTime() / 1000);
+					const create_time = Math.round(new Date(Date.UTC(2022, 5 - 1, 14, 11, 15, 0)).getTime() / 1000);
 					const timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
 					const currentTime = secondToDate((timestamp - create_time));
 					const currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
@@ -418,8 +696,6 @@
 					document.getElementById("htmer_time").innerHTML = currentTimeHtml;
 				}
 				setInterval(setTime, 1000);
-
-
 			</script>
 
 			<!--鼠标点击后显示的样式-->
