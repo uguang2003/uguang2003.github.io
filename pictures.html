@@ -33,20 +33,20 @@
 			.viewer-container {
 				z-index: 20000 !important;
 			}
-			
+
 			.viewer-backdrop {
 				z-index: 19999 !important;
 			}
-			
+
 			.viewer-button {
 				z-index: 20001 !important;
 			}
-			
+
 			/* 确保关闭按钮可以正常点击，不被菜单遮挡 */
 			.viewer-button:before {
 				pointer-events: none;
 			}
-			
+
 			.viewer-button {
 				pointer-events: auto;
 			}
@@ -54,12 +54,8 @@
 			/* 分页样式 */
 			#pagination {
 				background: rgba(27, 31, 34, 0.85);
-				border-radius: 8px;
 				backdrop-filter: blur(10px);
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				width: 80%;
-				max-width: 800px;
-				margin: 2em auto;
+				margin: 0 auto;
 			}
 
 			.pagination-info {
@@ -85,6 +81,15 @@
 			.pagination-controls .button:disabled {
 				opacity: 0.4;
 				cursor: not-allowed;
+			}
+
+			/* 页码样式 */
+			#page-numbers {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3em;
+				flex-wrap: wrap;
+				justify-content: center;
 			}
 
 			/* 图片加载动画 */
@@ -116,8 +121,7 @@
 			/* 响应式优化 */
 			@media screen and (max-width: 768px) {
 				#pagination {
-					width: 90%;
-					margin: 1.5em auto;
+					margin: 0 auto;
 					padding: 1em 0.5em;
 				}
 
@@ -128,20 +132,37 @@
 				}
 
 				.pagination-controls .button {
-					min-width: 70px;
-					font-size: 0.9em;
+					min-width: 60px;
+					font-size: 0.85em;
+					padding: 0.4em 0.6em;
 				}
 
 				.thumb h2 {
 					font-size: 1.1em;
 					margin-bottom: 0.4em;
 				}
+
+				/* 移动端页码优化 - 减少显示的页码数量 */
+				#page-numbers {
+					gap: 0.2em;
+				}
+
+				.page-number {
+					padding: 0.2em 0.5em !important;
+					font-size: 0.85em !important;
+				}
 			}
 
 			@media screen and (max-width: 480px) {
-				#pagination {
-					width: 95%;
-					padding: 1em 0.3em;
+				#main {
+					margin: 0 !important;
+					padding: 0 !important;
+				}
+
+				#main .thumb {
+					margin: 0 !important;
+					padding: 0 !important;
+					border: none !important;
 				}
 
 				.pagination-info {
@@ -149,32 +170,38 @@
 				}
 
 				.pagination-controls {
-					gap: 0.8em;
+					gap: 0.5em;
+					flex-direction: row !important; /* 强制保持一行显示 */
+					align-items: center;
+					justify-content: space-between;
+					flex-wrap: nowrap;
 				}
 
 				.pagination-controls .button {
-					min-width: 60px;
-					font-size: 0.85em;
-					padding: 0.5em 0.8em;
+					min-width: 50px;
+					font-size: 0.8em;
+					padding: 0.4em 0.5em;
+					flex-shrink: 0;
+				}
+
+				#page-numbers {
+					gap: 0.1em;
+					flex: 1;
+					justify-content: center;
+					margin: 0 0.5em;
+				}
+
+				.page-number {
+					padding: 0.2em 0.4em !important;
+					font-size: 0.75em !important;
+					min-width: 24px;
+					text-align: center;
 				}
 
 				/* 优化小屏幕下的图片卡片布局 */
 				.thumb h2 {
 					font-size: 1em;
 					margin-bottom: 0.3em;
-				}
-				
-				/* 手机端两列布局优化 */
-				#main .thumb {
-					width: 50% !important;
-					height: calc(25vh - 1em) !important;
-					min-height: 15em !important;
-				}
-				
-				/* 调整图片间距 */
-				#main {
-					gap: 0.5em;
-					padding: 0 0.25em;
 				}
 			}
 
@@ -184,7 +211,7 @@
 					font-size: 0.9em;
 					margin-bottom: 0.25em;
 				}
-				
+
 				/* 超小屏幕仍然保持两列 */
 				#main .thumb {
 					height: calc(20vh - 0.5em) !important;
@@ -217,10 +244,10 @@
 					success: function(data) {
 						allPicturesData = data;
 						totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
-						
+
 						// 显示第一页
 						renderPage(1);
-						
+
 						// 创建分页控制器
 						createPagination();
 					},
@@ -235,19 +262,19 @@
 				const $main = $("#main");
 				const startIndex = (page - 1) * ITEMS_PER_PAGE;
 				const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, allPicturesData.length);
-				
+
 				let strHtml = "";
-				
+
 				// 清空现有内容
 				$main.empty();
-				
+
 				// 生成当前页的图片HTML
 				for (let i = startIndex; i < endIndex; i++) {
 					const info = allPicturesData[i];
 					// 创建占位符图片，避免懒加载警告
 					// const placeholderSrc = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3E加载中...%3C/text%3E%3C/svg%3E";
 					const placeholderSrc = "";
-					
+
 					strHtml +=
 						"<div class=\"thumb\" style=\"opacity: 0; transform: translateY(20px);\">" +
 							"<div class=\"image\">" +
@@ -257,13 +284,13 @@
 							"<h2 class=\"location-info\">" + (info['location'] || '未知时间地点') + "</h2>" +
 						"</div>";
 				}
-				
+
 				// 插入HTML
 				$main.html(strHtml);
-				
+
 				// 实现图片懒加载
 				lazyLoadImages();
-				
+
 				// 添加渐显动画
 				setTimeout(() => {
 					$main.find('.thumb').each(function(index) {
@@ -277,7 +304,7 @@
 						}, index * 100);
 					});
 				}, 50);
-				
+
 				// 重新初始化图片查看器
 				setTimeout(() => {
 					if (gallery) {
@@ -303,7 +330,7 @@
 						}
 					});
 				}, 800);
-				
+
 				currentPage = page;
 				updatePaginationState();
 			}
@@ -311,7 +338,7 @@
 			// 图片懒加载函数
 			function lazyLoadImages() {
 				const images = document.querySelectorAll('img[data-src]');
-				
+
 				// 使用Intersection Observer API实现懒加载
 				if ('IntersectionObserver' in window) {
 					const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -320,13 +347,13 @@
 								const img = entry.target;
 								img.src = img.dataset.src;
 								img.removeAttribute('data-src');
-								
+
 								// 添加加载完成的淡入效果
 								img.onload = () => {
 									img.style.transition = 'opacity 0.3s ease';
 									img.style.opacity = '1';
 								};
-								
+
 								// 停止观察已加载的图片
 								observer.unobserve(img);
 							}
@@ -335,7 +362,7 @@
 						rootMargin: '50px 0px', // 提前50px开始加载
 						threshold: 0.1
 					});
-					
+
 					images.forEach(img => {
 						img.style.opacity = '0.8'; // 占位符半透明
 						imageObserver.observe(img);
@@ -358,15 +385,71 @@
 						</div>
 						<div class="pagination-controls">
 							<button id="prev-page" class="button small" ${currentPage === 1 ? 'disabled' : ''}>上一页</button>
+							<div id="page-numbers" style="display: inline-flex; align-items: center; margin: 0 1em; gap: 0.1em;">
+								<!-- 页码将在这里动态生成 -->
+							</div>
 							<button id="next-page" class="button small" ${currentPage === totalPages ? 'disabled' : ''}>下一页</button>
 						</div>
 					</div>
 				`;
-				
+
 				$('#main').after(paginationHtml);
-				
+
+				// 生成页码
+				generatePageNumbers();
+
 				// 绑定分页事件
 				bindPaginationEvents();
+			}
+
+			// 生成页码显示
+			function generatePageNumbers() {
+				const $pageNumbers = $('#page-numbers');
+				$pageNumbers.empty();
+
+				if (totalPages <= 1) return;
+
+				let pages = [];
+
+				if (totalPages <= 7) {
+					// 总页数少于等于7页，显示所有页码
+					for (let i = 1; i <= totalPages; i++) {
+						pages.push(i);
+					}
+				} else {
+					// 总页数大于7页，使用省略号逻辑
+					const startPage = Math.max(1, currentPage - 2);
+					const endPage = Math.min(totalPages, currentPage + 3);
+					
+					// 如果开始页不是第一页，添加省略号
+					if (startPage > 1) {
+						pages.push('...');
+					}
+					
+					// 添加当前页前后的页码
+					for (let i = startPage; i <= endPage; i++) {
+						pages.push(i);
+					}
+					
+					// 如果结束页不是最后一页，添加省略号
+					if (endPage < totalPages) {
+						pages.push('...');
+					}
+				}
+
+				// 生成页码HTML
+				pages.forEach(page => {
+					if (page === '...') {
+						$pageNumbers.append('<span style="color: #919397; padding: 0.3em 0.3em;">…</span>');
+					} else {
+						const isActive = page === currentPage;
+						const pageStyle = isActive 
+							? 'background: #5e92f3; color: #fff; padding: 0.3em 0.8em; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;'
+							: 'color: #919397; padding: 0.3em 0.8em; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;';
+						
+						$pageNumbers.append(`<span class="page-number" data-page="${page}" style="${pageStyle}">${page}</span>`);
+					}
+				});
 			}
 
 			// 绑定分页事件
@@ -374,9 +457,30 @@
 				$('#prev-page').on('click', () => {
 					if (currentPage > 1) renderPage(currentPage - 1);
 				});
-				
+
 				$('#next-page').on('click', () => {
 					if (currentPage < totalPages) renderPage(currentPage + 1);
+				});
+
+				// 页码点击事件
+				$(document).on('click', '.page-number', function() {
+					const targetPage = parseInt($(this).data('page'));
+					if (targetPage !== currentPage) {
+						renderPage(targetPage);
+					}
+				});
+
+				// 页码悬停效果
+				$(document).on('mouseenter', '.page-number', function() {
+					if (parseInt($(this).data('page')) !== currentPage) {
+						$(this).css('background', 'rgba(94, 146, 243, 0.2)');
+					}
+				});
+
+				$(document).on('mouseleave', '.page-number', function() {
+					if (parseInt($(this).data('page')) !== currentPage) {
+						$(this).css('background', 'transparent');
+					}
 				});
 			}
 
@@ -384,11 +488,14 @@
 			function updatePaginationState() {
 				$('#current-page').text(currentPage);
 				$('#total-pages').text(totalPages);
-				
+
+				// 重新生成页码
+				generatePageNumbers();
+
 				// 更新按钮状态
 				$('#prev-page').prop('disabled', currentPage === 1);
 				$('#next-page').prop('disabled', currentPage === totalPages);
-				
+
 				// 滚动到顶部
 				$('html, body').animate({
 					scrollTop: $('#main').offset().top - 100
