@@ -129,17 +129,54 @@
 			
 			@media screen and (max-width: 768px) {
 				.card-container {
-					grid-template-columns: 1fr;
-					gap: 1.5rem;
+					grid-template-columns: repeat(3, 1fr);
+					gap: 0.8rem;
 					padding: 1rem 0;
 				}
 				
 				.card {
-					padding: 1.5rem;
+					padding: 0.8rem 0.5rem;
 				}
 				
 				.card i {
-					font-size: 2.5rem;
+					font-size: 1.8rem;
+					margin-bottom: 0.5rem;
+				}
+				
+				.card h3 {
+					font-size: 0.8rem;
+					margin: 0.5rem 0 0.3rem 0;
+					line-height: 1.2;
+				}
+				
+				.card p {
+					font-size: 0.65rem;
+					line-height: 1.2;
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				.card-container {
+					gap: 0.6rem;
+					padding: 0.8rem 0;
+				}
+				
+				.card {
+					padding: 0.6rem 0.3rem;
+				}
+				
+				.card i {
+					font-size: 1.5rem;
+					margin-bottom: 0.3rem;
+				}
+				
+				.card h3 {
+					font-size: 0.7rem;
+					margin: 0.3rem 0 0.2rem 0;
+				}
+				
+				.card p {
+					font-size: 0.6rem;
 				}
 			}
 
@@ -207,10 +244,63 @@
 				border-radius: 15px;
 			}
 			
+			/* 页面高度控制 */
+			#one {
+				min-height: 40vh;
+				display: flex;
+				align-items: center;
+			}
+			
+			#two {
+				min-height: 60vh;
+			}
+			
+			#two .spotlight:first-child {
+				min-height: 60vh;
+				display: flex;
+				align-items: center;
+			}
+			
+			/* 平滑滚动优化 */
+			html {
+				scroll-behavior: smooth;
+			}
+			
+			/* 确保滚动目标位置正确 */
+			#one {
+				scroll-margin-top: 3em;
+			}
+			
 			@media screen and (max-width: 980px) {
 				.spotlight .image {
 					text-align: center;
 					padding: 2rem;
+				}
+				
+				#one {
+					min-height: 35vh;
+				}
+				
+				#two .spotlight:first-child {
+					min-height: 65vh;
+				}
+			}
+			
+			@media screen and (max-width: 736px) {
+				#one {
+					min-height: 30vh;
+					scroll-margin-top: 3em;
+				}
+				
+				#two .spotlight:first-child {
+					min-height: 70vh;
+					flex-direction: column;
+					justify-content: center;
+					padding: 2rem 0;
+				}
+				
+				#two .spotlight:first-child .image {
+					margin-bottom: 2rem;
 				}
 			}
 		</style>
