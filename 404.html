@@ -5,9 +5,7 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="./images/favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			/*滚动条宽度*/
 			::-webkit-scrollbar {
@@ -40,13 +38,11 @@
 						<nav id="nav">
 							<ul>
 								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<a href="#menu" class="menuToggle"><span>菜单</span></a>
 									<div id="menu">
 										<ul>
 											<li><a href="./index.html">主页</a></li>
-											<li><a href="./resources.html">资源库</a></li>
 											<li><a href="./pictures.html">照片墙</a></li>
-											<li><a href="./about.html">关于我</a></li>
 										</ul>
 									</div>
 								</li>
@@ -59,47 +55,51 @@
 				<br>
 				<br>
 
-				<div class="ui m-opacity m-margin-top-max container">
-					<img src="./images/404.jpg" alt="" class="ui rounded bordered fluid image">
+				<div style="text-align: center;">
+					<img src="./images/404.jpg" alt="404">
 				</div>
 				<div align="center">
-					<a class="button" href="./index.html" style="line-height: 40px; margin-top: 10px">返回首页</a>
+					<a class="button" href="./index.html" style="line-height: 50px; margin-top: 10px">返回首页</a>
 				</div>
 
 				<br>
 				<br>
 				<br>
 
-				<!-- Footer -->
+				<!-- 底部 -->
 					<footer id="footer">
 						<ul class="icons">
-							<li><a href="https://twitter.com/uguang666" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.facebook.com/uguang2003" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://github.com/uguang2003" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://t.me/uguang666/" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
-							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
-							<li><a href="mailto:uguang2003@email.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://twitter.com/uguang666" target="_blank" class="icon brands fa fa-x-twitter"><span class="label">X</span></a></li>
+							<li><a href="https://www.facebook.com/uguang2003" target="_blank" class="icon brands fa fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/uguang2003" target="_blank" class="icon brands fa fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://t.me/uguang666/" target="_blank" class="icon brands fa fa-telegram"><span class="label">Telegram</span></a></li>
+							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" target="_blank" class="icon brands fa fa-tiktok"><span class="label">TikTok</span></a></li>
+							<li><a href="mailto:uguang2003@email.com" target="_blank" class="icon solid fa fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
-						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">客栈已营业:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
+						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">网站已生存:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
 						<ul class="copyright">
-							<li>&copy; UG666</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; 2022 - 2025 UG</li>
+							<li> All rights reserved.</li>
+							<li><a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">赣ICP备2023014531号-1</a></li>
 						</ul>
 					</footer>
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-
+		<!-- 脚本 -->
+			<!-- UG666动画的组件 -->
+			<script src="./assets/js/breakpoints.min.js"></script>
+			<!-- jquery -->
+			<script src="./assets/js/jquery.min.js"></script>
+			<!-- “更多”按钮点击后向下滑动画的组件 -->
+			<script src="./assets/js/jquery.scrolly.min.js"></script>
+			<!-- “更多”按钮显示头部的组件 -->
+			<script src="./assets/js/jquery.scrollex.min.js"></script>
+			<script src="./assets/js/browser.min.js"></script>
+			<script src="./assets/js/util.js"></script>
+			<!-- 主js -->
+			<script src="./assets/js/main.js"></script>
 			<script>
-
 				// 运行时间统计
 				function secondToDate(second) {
 					if (!second) {
@@ -129,7 +129,7 @@
 				}
 				function setTime() {
 					/*此处为网站的创建时间*/
-					const create_time = Math.round(new Date(Date.UTC(2023, 3 - 1, 24, 19, 0, 0)).getTime() / 1000);
+					const create_time = Math.round(new Date(Date.UTC(2022, 5 - 1, 14, 11, 15, 0)).getTime() / 1000);
 					const timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
 					const currentTime = secondToDate((timestamp - create_time));
 					const currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
@@ -138,8 +138,6 @@
 					document.getElementById("htmer_time").innerHTML = currentTimeHtml;
 				}
 				setInterval(setTime, 1000);
-
-
 			</script>
 
 			<!--鼠标点击后显示的样式-->

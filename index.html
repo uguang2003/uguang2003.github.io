@@ -168,6 +168,24 @@
 				}
 			}
 
+			/* 菜单按钮隐藏/显示控制 */
+			#header.alt #nav {
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.5s ease;
+				transform: translateY(-10px);
+			}
+			
+			#header:not(.alt) #nav {
+				opacity: 1;
+				pointer-events: auto;
+				transform: translateY(0);
+			}
+			
+			#nav {
+				transition: opacity 0.5s ease, transform 0.5s ease;
+			}
+
 			/* 个人信息部分样式 */
 			.spotlight .content h3 {
 				color: #64B5F6;
