@@ -3632,19 +3632,21 @@ input, select, textarea {
 				color: inherit;
 			}
 
+		/* 定义一个“从下向上淡入”的动画 */
+		@keyframes fadeInAndUp {
+				from {
+						opacity: 0;
+						transform: translateY(20px); /* 从下方20px处开始 */
+				}
+				to {
+						opacity: 1;
+						transform: translateY(0); /* 移动到原始位置 */
+				}
+		}
+
 		#banner .more {
-			-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
-			-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
-			-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
-			transition: transform 0.75s ease, opacity 0.75s ease;
-			-moz-transition-delay: 1.5s;
-			-webkit-transition-delay: 1.5s;
-			-ms-transition-delay: 1.5s;
-			transition-delay: 1.5s;
-			-moz-transform: translateY(0);
-			-webkit-transform: translateY(0);
-			-ms-transform: translateY(0);
-			transform: translateY(0);
+			animation: fadeInAndUp 0.75s cubic-bezier(.4,2,.3,1) 1.5s forwards;
+			transition: transform 0.4s cubic-bezier(.4,2,.3,1) !important;
 			border: none;
 			bottom: 0;
 			color: inherit;
@@ -3653,7 +3655,7 @@ input, select, textarea {
 			left: 50%;
 			letter-spacing: 0.225em;
 			margin-left: -8.5em;
-			opacity: 1;
+			opacity: 0;
 			outline: 0;
 			padding-left: 0.225em;
 			position: absolute;
@@ -3662,6 +3664,10 @@ input, select, textarea {
 			width: 16em;
 			z-index: 1;
 		}
+
+			#banner .more:active {
+				transform: scale(0.9) !important;
+			}
 
 			#banner .more:after {
 				background-image: url("images/arrow.svg");
