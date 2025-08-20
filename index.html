@@ -178,6 +178,76 @@
 				.card p {
 					font-size: 0.6rem;
 				}
+				
+				/* 小屏幕关于我字体调整 */
+				#two h2 {
+					font-size: 1.8rem;
+				}
+				
+				#two h3 {
+					font-size: 0.9rem;
+				}
+				
+				#two p {
+					font-size: 0.9rem;
+					line-height: 1.5;
+				}
+				
+				.tech-grid {
+					grid-template-columns: 1fr 1fr;
+					gap: 1rem;
+				}
+				
+				.tech-card {
+					padding: 1.2rem;
+				}
+				
+				.tech-icon {
+					font-size: 2rem;
+					width: 45px;
+					height: 45px;
+				}
+				
+				.tech-content h3 {
+					font-size: 1rem;
+				}
+				
+				.tech-content p {
+					font-size: 0.75rem;
+				}
+				
+				/* 原超小屏幕 - 第二部分 */
+				#two > div:first-child {
+					padding: 0.5rem !important;
+				}
+				#two > div:first-child > div {
+					padding: 1.5rem 1rem !important;
+					border-radius: 15px !important;
+				}
+				
+				/* 原超小屏幕 - 技术栈 */
+				#tech-stack > div:nth-child(2) {
+					padding: 0.5rem !important;
+				}
+				#tech-stack > div:nth-child(2) > div:nth-child(2) {
+					gap: 0.8rem !important;
+				}
+				#tech-stack > div:nth-child(2) > div:nth-child(2) > div {
+					padding: 1.2rem 0.8rem !important;
+					border-radius: 15px !important;
+				}
+				#tech-stack h3 {
+					font-size: 1rem !important;
+					margin-bottom: 0.8rem !important;
+				}
+				#tech-stack i {
+					font-size: 1.3rem !important;
+				}
+				#tech-stack > div:nth-child(2) > div:nth-child(2) > div > div:first-child > div {
+					width: 50px !important;
+					height: 50px !important;
+					margin-bottom: 1rem !important;
+				}
 			}
 
 			@media screen and (max-width: 736px){
@@ -246,63 +316,256 @@
 			
 			/* 页面高度控制 */
 			#one {
-				min-height: 40vh;
 				display: flex;
 				align-items: center;
 			}
 			
 			#two {
 				min-height: 60vh;
+				padding: 4rem 0;
 			}
 			
-			#two .spotlight:first-child {
-				min-height: 60vh;
+			#tech-stack {
+				min-height: 70vh;
+				padding: 4rem 0;
+			}
+
+			/* 关于我部分字体调整 */
+			#two h2 {
+				font-size: 2.5rem;
+			}
+			
+			#two h3 {
+				font-size: 1.2rem;
+			}
+			
+			#two p {
+				font-size: 1.2rem;
+				line-height: 1.8;
+			}
+
+			/* 新增动画 */
+			@keyframes float {
+				0%, 100% { transform: translateY(0px); }
+				50% { transform: translateY(-20px); }
+			}
+			
+			/* 技术栈样式 */
+			#tech-stack {
+				background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+			}
+			
+			.tech-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 2rem;
+				margin-top: 3rem;
+			}
+			
+			.tech-card {
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				border-radius: 15px;
+				padding: 2rem;
+				display: flex;
+				align-items: flex-start;
+				gap: 1.5rem;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(10px);
+			}
+			
+			.tech-card:hover {
+				transform: translateY(-10px);
+				background: rgba(255, 255, 255, 0.15);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+			}
+			
+			.tech-icon {
+				font-size: 3rem;
+				line-height: 1;
+				flex-shrink: 0;
+				width: 60px;
+				height: 60px;
 				display: flex;
 				align-items: center;
+				justify-content: center;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 12px;
+				border: 2px solid rgba(255, 255, 255, 0.2);
 			}
 			
-			/* 平滑滚动优化 */
-			html {
-				scroll-behavior: smooth;
+			.tech-content {
+				flex: 1;
 			}
 			
-			/* 确保滚动目标位置正确 */
-			#one {
-				scroll-margin-top: 3em;
+			.tech-content h3 {
+				color: #ffffff;
+				margin: 0 0 1rem 0;
+				font-size: 1.3rem;
 			}
 			
-			@media screen and (max-width: 980px) {
-				.spotlight .image {
-					text-align: center;
-					padding: 2rem;
+			.tech-content p {
+				color: rgba(255, 255, 255, 0.9);
+				line-height: 1.6;
+				margin: 0 0 0.8rem 0;
+				font-size: 0.9rem;
+			}
+			
+			.tech-content p:last-child {
+				margin-bottom: 0;
+			}
+			
+			.tech-content strong {
+				color: #ffffff;
+			}
+
+			/* 移动端响应式 */
+			@media screen and (max-width: 768px) {
+				.card-container {
+					grid-template-columns: repeat(3, 1fr);
+					gap: 0.8rem;
+					padding: 1rem 0;
 				}
 				
-				#one {
-					min-height: 35vh;
+				.card {
+					padding: 0.8rem 0.5rem;
 				}
 				
-				#two .spotlight:first-child {
-					min-height: 65vh;
-				}
-			}
-			
-			@media screen and (max-width: 736px) {
-				#one {
-					min-height: 30vh;
-					scroll-margin-top: 3em;
+				.card i {
+					font-size: 1.8rem;
+					margin-bottom: 0.5rem;
 				}
 				
-				#two .spotlight:first-child {
-					min-height: 70vh;
-					flex-direction: column;
-					justify-content: center;
+				.card h3 {
+					font-size: 0.8rem;
+					margin: 0.5rem 0 0.3rem 0;
+					line-height: 1.2;
+				}
+				
+				.card p {
+					font-size: 0.65rem;
+					line-height: 1.2;
+				}
+				
+				#two {
+					min-height: auto;
 					padding: 2rem 0;
 				}
 				
-				#two .spotlight:first-child .image {
-					margin-bottom: 2rem;
+				/* 移动端关于我字体调整 */
+				#two h2 {
+					font-size: 2rem;
+				}
+				
+				#two h3 {
+					font-size: 1rem;
+				}
+				
+				#two p {
+					font-size: 1rem;
+					line-height: 1.6;
+				}
+				
+				#tech-stack {
+					min-height: auto;
+					padding: 2rem 0;
+				}
+				
+				.tech-grid {
+					grid-template-columns: 1fr 1fr;
+					gap: 1.5rem;
+				}
+				
+				.tech-card {
+					padding: 1.5rem;
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+					gap: 1rem;
+				}
+				
+				.tech-icon {
+					font-size: 2.5rem;
+					width: 50px;
+					height: 50px;
+				}
+				
+				.tech-content h3 {
+					font-size: 1.1rem;
+				}
+				
+				.tech-content p {
+					font-size: 0.8rem;
 				}
 			}
+
+			@media screen and (max-width: 736px){			@media screen and (max-width: 480px) {
+				/* 小屏幕关于我字体调整 */
+				#two h2 {
+					font-size: 1.8rem;
+				}
+				
+				#two h3 {
+					font-size: 0.9rem;
+				}
+				
+				#two p {
+					font-size: 0.9rem;
+					line-height: 1.5;
+				}
+				
+				.tech-grid {
+					grid-template-columns: 1fr 1fr;
+					gap: 1rem;
+					padding: 0 1em;
+				}
+				
+				.tech-card {
+					padding: 1.2rem;
+				}
+				
+				.tech-icon {
+					font-size: 2rem;
+					width: 45px;
+					height: 45px;
+				}
+				
+				.tech-content h3 {
+					font-size: 1rem;
+				}
+				
+				.tech-content p {
+					font-size: 0.75rem;
+				}
+			}
+			
+			/* 超小屏幕样式 */
+			@media screen and (max-width: 360px) {
+				#one {
+					padding: 1.5rem 0 !important;
+				}
+				
+				#two {
+					padding: 1.5rem 0.8rem !important;
+				}
+				
+				#two h2 {
+					font-size: 1.6rem !important;
+					margin: 0 0 0.4rem 0 !important;
+				}
+				
+				#two h3 {
+					font-size: 0.8rem !important;
+					margin: 0 0 0.6rem 0 !important;
+				}
+				
+				#two p {
+					font-size: 0.8rem !important;
+					line-height: 1.3 !important;
+					margin-bottom: 0.5rem !important;
+				}
+			}
+				
 		</style>
 	</head>
 	<body class="landing is-preload" style="user-select: none">
@@ -355,61 +618,76 @@
 					</section>
 
 				<!-- 第二部分 -->
-					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="./images/me.jpg" alt="UG头像" /></div>
-							<div class="content">
-								<h2>关于我</h2>
-								<p>我是UG，一个斗码大陆苦逼的三段码之气的少年，并没有神秘戒指中码老的帮助，但总有一天，我会成为斗码大陆中码帝一样的存在。三十年河东，三十年河西，莫欺少年穷。</p>
-								<!-- <p>一名热爱编程和创造的开发者。貌似潘安，体壮心宽，学富五车，爱好广泛。会一点编程，一点剪辑，喜欢DIY，喜欢折腾。在代码的世界里探索无限可能，用技术实现创意想法。</p> -->
-								<p>我们在不停地奋斗和赶路的同时，别忘了，奖励一下自己。</p>
+					<section id="two" class="wrapper special" style="min-height: 60vh; background: #667eea; display: flex; align-items: center; justify-content: center;">
+						<div class="inner" style="max-width: 1200px; width: 100%; text-align: center;">
+							<div class="major">
+								<h2>UG</h2>
+								<h3>斗码大陆的少年</h3>
 							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><i class="fa fa-code" style="font-size: 6rem; color: #64B5F6; display: flex; align-items: center; justify-content: center; height: 100%;"></i></div>
-							<div class="content" style="margin-top: 20px;">
-								<h2>技术栈</h2>
-								<h3>前端开发</h3>
+							
+							<div>
 								<p>
-									<strong>语言：</strong>HTML5、CSS3、JavaScript、TypeScript<br />
-									<strong>框架：</strong>React、Vue.js、jQuery<br />
-									<strong>工具：</strong>Webpack、Vite、Sass、响应式设计
+									我是UG，一个斗码大陆苦逼的三段码之气的少年，并没有神秘戒指中码老的帮助，但总有一天，我会成为斗码大陆中码帝一样的存在。
 								</p>
-								
-								<h3>后端开发</h3>
 								<p>
-									<strong>语言：</strong>Java、Node.js、Python<br />
-									<strong>框架：</strong>Spring Boot、Express.js<br />
-									<strong>数据库：</strong>MySQL、Redis、MongoDB
+									"三十年河东，三十年河西，莫欺少年穷。"
 								</p>
 							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><i class="fa fa-gamepad" style="font-size: 6rem; color: #64B5F6; display: flex; align-items: center; justify-content: center; height: 100%;"></i></div>
-							<div class="content" style="margin-top: 20px;">
-								<h2>游戏开发</h2>
-								<p>
-									<strong>Unity：</strong>使用C#进行游戏开发，涵盖移动端和PC端<br />
-									<strong>Cocos Creator：</strong>JavaScript/TypeScript游戏开发<br />
-									<strong>游戏类型：</strong>2D横版游戏、休闲小游戏、射击游戏
-								</p>
-								<p>擅长游戏物理系统、AI逻辑、UI交互设计等</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><i class="fa fa-server" style="font-size: 6rem; color: #64B5F6; display: flex; align-items: center; justify-content: center; height: 100%;"></i></div>
-							<div class="content" style="margin-top: 20px;">
-								<h2>运维技能</h2>
-								<p>
-									<strong>服务器：</strong>Nginx配置、宝塔面板管理<br />
-									<strong>部署：</strong>网站部署、域名配置、SSL证书<br />
-									<strong>其他：</strong>Git版本控制、Linux基础操作<br />
-									<strong>博客运营：</strong>3年+ 博客运营经验，28篇技术文章，23000+ 访问量
-								</p>
-							</div>
-						</section>
+						</div>
 					</section>
 
+				<!-- 技术栈部分 -->
+					<section id="tech-stack" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+								<h2>技术栈</h2>
+								<p>这是我在开发路上掌握的技术</p>
+							</header>
+							<div class="tech-grid">
+								<div class="tech-card">
+									<div class="tech-icon">
+										🎮
+									</div>
+									<div class="tech-content">
+										<h3>游戏开发</h3>
+										<p><strong>主要技术：</strong> Unity3D、C#、Laya引擎</p>
+										<p><strong>涉及领域：</strong> 2D/3D游戏、移动端游戏、Web游戏</p>
+									</div>
+								</div>
+								<div class="tech-card">
+									<div class="tech-icon">
+										🎨
+									</div>
+									<div class="tech-content">
+										<h3>前端开发</h3>
+										<p><strong>主要技术：</strong> HTML、CSS、JavaScript、Vue.js</p>
+										<p><strong>涉及领域：</strong> 响应式设计、移动端适配、用户体验优化</p>
+									</div>
+								</div>
+								<div class="tech-card">
+									<div class="tech-icon">
+										⚙️
+									</div>
+									<div class="tech-content">
+										<h3>后端开发</h3>
+										<p><strong>主要技术：</strong> Java、Python、Node.js</p>
+										<p><strong>涉及领域：</strong> Web框架、数据库设计、API开发</p>
+									</div>
+								</div>
+								<div class="tech-card">
+									<div class="tech-icon">
+										🚀
+									</div>
+									<div class="tech-content">
+										<h3>运维开发</h3>
+										<p><strong>主要技术：</strong> Docker、Linux、Git、CI/CD</p>
+										<p><strong>涉及领域：</strong> 自动化部署、容器化、版本控制</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>		
+					
 				<!-- 导航部分 -->
 					<section id="three" class="wrapper style3 special">
 						<div class="inner">
