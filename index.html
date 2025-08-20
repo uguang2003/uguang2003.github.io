@@ -27,6 +27,19 @@
 				background: rgb(66,76,86);
 			}
 
+			a, button {
+				-webkit-tap-highlight-color: transparent;
+			}
+
+			a.scrolly,
+			.scrolly {
+				transition: transform 0.15s cubic-bezier(.4,2,.3,1) !important;
+			}
+			a.scrolly:active,
+			.scrolly:active {
+				transform: scale(0.92) !important;
+			}
+
 			.m-font-size-text-init-title{
 				line-height: 0;
 				letter-spacing: 0 !important;
@@ -341,7 +354,7 @@
 							<p class="m-font-size-text-init-title"><span>毕竟我,不想做别人的选择</span></p>
 
 						</div>
-						<a href="#one" class="more scrolly">更多<br><i class="fa fa-arrow-down"></i></a>
+						<a href="#one" class="more scrolly">更多</a>
 					</section>
 
 				<!-- 第一部分 -->
