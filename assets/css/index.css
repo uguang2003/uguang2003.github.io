@@ -21,12 +21,14 @@
 }
 
 .m-font-size-text-init-title {
-  line-height: 1.2;
-  letter-spacing: 0.075em;
-  font-size: 1.15em;
-  font-weight: 400;
+  line-height: 0;
+  letter-spacing: 0 !important;
+  font-size: 1.5em;
+  font-weight: 700;
   color: #fffffc;
-  font-family: "Open Sans", Helvetica, sans-serif;
+  align-content: center;
+  font-family:'STXingkai';
+  font-family: "STXingkai";
 }
 
 .bgImg {
@@ -222,10 +224,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .m-font-size-text-init-title {
-    font-size: 1em;
-    line-height: 1.3;
-  }
 
   .card-container {
     grid-template-columns: repeat(3, 1fr);
@@ -281,7 +279,6 @@
 @media screen and (max-width: 736px) {
   .m-font-size-text-init-title {
     margin-top: 1em;
-    line-height: 1.2;
   }
 
   .bgImg {
@@ -298,7 +295,7 @@
 
 @media screen and (max-width: 320px) {
   .m-font-size-text-init-title {
-    font-size: 0.9em;
+    font-size: 2em;
   }
 }
 
