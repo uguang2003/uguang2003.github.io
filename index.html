@@ -1,832 +1,276 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>UG-撑伞少年</title>
-		<meta charset="utf-8" />
-		<link rel="icon" href="./images/favicon.ico">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="./assets/css/main.css" />
-		<!-- 自定义样式 -->
-		<style>
-			/*滚动条宽度*/
-			::-webkit-scrollbar {
-				width: 6px;
-				height: 6px;
-			}
-			/*滚动条轨道*/
-			::-webkit-scrollbar-track {
-				background: transparent;
-				border-radius: 2px;
-			}
-			/*小滑块*/
-			::-webkit-scrollbar-thumb {
-				background: rgb(76,86,96);
-				border-radius: 10px;
-			}
-			::-webkit-scrollbar-thumb:hover {
-				background: rgb(66,76,86);
-			}
 
-			.m-font-size-text-init-title{
-				line-height: 0;
-				letter-spacing: 0 !important;
-				font-size: 24px;
-				font-weight: 700;
-				color: #fffffc;
-				align-content: center;
-				font-family:'STXingkai';
-			}
+<head>
+	<title>UG-撑伞少年</title>
+	<meta charset="utf-8" />
+	<link rel="icon" href="./images/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no" />
+	<!-- 模板自带的样式 -->
+	<link rel="stylesheet" href="./assets/css/main.css" />
+	<!-- 自定义样式 -->
+	<link rel="stylesheet" href="./assets/css/index.css" />
+</head>
 
-			.icon_bottom{
-				box-shadow: none;
-				border-radius: 1.5em;
-				width: 3em;
-				padding: 0 1em;
-				height: 3em;
-				line-height: 3em;
-				background-color: rgb(46,56,66);
-			}
+<body class="landing is-preload" style="user-select: none">
 
-			.bgImg{
-				border-radius: 10em;
-				width: 10em;
-				height: 10em;
-				background: url("./images/me.jpg") no-repeat center;
-				background-size: 13em;
-			}
-
-			.tubiao{
-				user-select:none;
-				margin-bottom: 0.5em
-			}
-			.tubiao a:active{
-				-webkit-tap-highlight-color:rgba(0,0,0,0);
-			}
-
-			.a-content{
-				user-select:none;
-			}
-			.a-content p{
-				color: #C1CEE4;
-			}
-			.a-content:hover{
-				color: #fffffc;
-				background-color: rgba(0, 0, 0, .3)!important;
-			}
-			.a-content:active{
-				background-color: rgba(0, 0, 0, .4)!important;
-				-webkit-tap-highlight-color:rgba(0,0,0,0);
-			}
-
-			/* 卡片样式 */
-			.card-container {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 2rem;
-				padding: 2rem 0;
-			}
-			
-			.card {
-				background: rgba(255, 255, 255, 0.05);
-				border-radius: 15px;
-				padding: 2rem;
-				text-align: center;
-				transition: all 0.3s ease;
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				backdrop-filter: blur(10px);
-				cursor: pointer;
-				text-decoration: none;
-				display: block;
-				color: inherit;
-			}
-			
-			.card:hover {
-				transform: translateY(-5px);
-				background: rgba(255, 255, 255, 0.1);
-				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-				text-decoration: none;
-				color: inherit;
-			}
-			
-			.card i {
-				font-size: 3rem;
-				margin-bottom: 1rem;
-				color: #64B5F6;
-			}
-			
-			.card h3 {
-				margin: 1rem 0 0.5rem 0;
-				font-size: 1.5rem;
-				font-weight: 600;
-			}
-			
-			.card p {
-				color: #C1CEE4;
-				margin: 0;
-				font-size: 0.9rem;
-				line-height: 1.5;
-			}
-			
-			@media screen and (max-width: 768px) {
-				.card-container {
-					grid-template-columns: repeat(3, 1fr);
-					gap: 0.8rem;
-					padding: 1rem 0;
-				}
-				
-				.card {
-					padding: 0.8rem 0.5rem;
-				}
-				
-				.card i {
-					font-size: 1.8rem;
-					margin-bottom: 0.5rem;
-				}
-				
-				.card h3 {
-					font-size: 0.8rem;
-					margin: 0.5rem 0 0.3rem 0;
-					line-height: 1.2;
-				}
-				
-				.card p {
-					font-size: 0.65rem;
-					line-height: 1.2;
-				}
-			}
-
-			@media screen and (max-width: 480px) {
-				.card-container {
-					gap: 0.6rem;
-					padding: 0.8rem 0;
-				}
-				
-				.card {
-					padding: 0.6rem 0.3rem;
-				}
-				
-				.card i {
-					font-size: 1.5rem;
-					margin-bottom: 0.3rem;
-				}
-				
-				.card h3 {
-					font-size: 0.7rem;
-					margin: 0.3rem 0 0.2rem 0;
-				}
-				
-				.card p {
-					font-size: 0.6rem;
-				}
-				
-				/* 小屏幕关于我字体调整 */
-				#two h2 {
-					font-size: 1.8rem;
-				}
-				
-				#two h3 {
-					font-size: 0.9rem;
-				}
-				
-				#two p {
-					font-size: 0.9rem;
-					line-height: 1.5;
-				}
-				
-				.tech-grid {
-					grid-template-columns: 1fr 1fr;
-					gap: 1rem;
-				}
-				
-				.tech-card {
-					padding: 1.2rem;
-				}
-				
-				.tech-icon {
-					font-size: 2rem;
-					width: 45px;
-					height: 45px;
-				}
-				
-				.tech-content h3 {
-					font-size: 1rem;
-				}
-				
-				.tech-content p {
-					font-size: 0.75rem;
-				}
-				
-				/* 原超小屏幕 - 第二部分 */
-				#two > div:first-child {
-					padding: 0.5rem !important;
-				}
-				#two > div:first-child > div {
-					padding: 1.5rem 1rem !important;
-					border-radius: 15px !important;
-				}
-				
-				/* 原超小屏幕 - 技术栈 */
-				#tech-stack > div:nth-child(2) {
-					padding: 0.5rem !important;
-				}
-				#tech-stack > div:nth-child(2) > div:nth-child(2) {
-					gap: 0.8rem !important;
-				}
-				#tech-stack > div:nth-child(2) > div:nth-child(2) > div {
-					padding: 1.2rem 0.8rem !important;
-					border-radius: 15px !important;
-				}
-				#tech-stack h3 {
-					font-size: 1rem !important;
-					margin-bottom: 0.8rem !important;
-				}
-				#tech-stack i {
-					font-size: 1.3rem !important;
-				}
-				#tech-stack > div:nth-child(2) > div:nth-child(2) > div > div:first-child > div {
-					width: 50px !important;
-					height: 50px !important;
-					margin-bottom: 1rem !important;
-				}
-			}
-
-			@media screen and (max-width: 736px){
-				.m-font-size-text-init-title{
-					margin-top: 1em;
-					line-height: 0.5em;
-				}
-				.bgImg{
-					margin-top: 4em;
-					border-radius: 10em;
-					width: 10em;
-					height: 10em;
-					background: url("./images/me.jpg") no-repeat center;
-					background-size: 13em;
-				}
-				.tubiao{
-					margin-bottom: 2em;
-					margin-top: 2em;
-				}
-			}
-
-			@media screen and (max-width: 320px){
-				.m-font-size-text-init-title{
-					font-size: 20px;
-				}
-			}
-
-			/* 菜单按钮隐藏/显示控制 */
-			#header.alt #nav {
-				opacity: 0;
-				pointer-events: none;
-				transition: opacity 0.5s ease;
-				transform: translateY(-10px);
-			}
-			
-			#header:not(.alt) #nav {
-				opacity: 1;
-				pointer-events: auto;
-				transform: translateY(0);
-			}
-			
-			#nav {
-				transition: opacity 0.5s ease, transform 0.5s ease;
-			}
-
-			/* 个人信息部分样式 */
-			.spotlight .content h3 {
-				color: #64B5F6;
-				margin: 1.5rem 0 0.5rem 0;
-				font-size: 1.2rem;
-			}
-			
-			.spotlight .content p strong {
-				color: #ffffff;
-				font-weight: 600;
-			}
-			
-			.spotlight .image {
-				border-radius: 15px;
-				overflow: hidden;
-			}
-			
-			.spotlight .image img {
-				border-radius: 15px;
-			}
-			
-			/* 页面高度控制 */
-			#one {
-				display: flex;
-				align-items: center;
-			}
-			
-			#two {
-				min-height: 60vh;
-				padding: 4rem 0;
-			}
-			
-			#tech-stack {
-				min-height: 70vh;
-				padding: 4rem 0;
-			}
-
-			/* 关于我部分字体调整 */
-			#two h2 {
-				font-size: 2.5rem;
-			}
-			
-			#two h3 {
-				font-size: 1.2rem;
-			}
-			
-			#two p {
-				font-size: 1.2rem;
-				line-height: 1.8;
-			}
-
-			/* 新增动画 */
-			@keyframes float {
-				0%, 100% { transform: translateY(0px); }
-				50% { transform: translateY(-20px); }
-			}
-			
-			/* 技术栈样式 */
-			#tech-stack {
-				background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-			}
-			
-			.tech-grid {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 2rem;
-				margin-top: 3rem;
-			}
-			
-			.tech-card {
-				background: rgba(255, 255, 255, 0.05);
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				border-radius: 15px;
-				padding: 2rem;
-				display: flex;
-				align-items: flex-start;
-				gap: 1.5rem;
-				transition: all 0.3s ease;
-				backdrop-filter: blur(10px);
-			}
-			
-			.tech-card:hover {
-				transform: translateY(-10px);
-				background: rgba(255, 255, 255, 0.15);
-				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-			}
-			
-			.tech-icon {
-				font-size: 3rem;
-				line-height: 1;
-				flex-shrink: 0;
-				width: 60px;
-				height: 60px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				background: rgba(255, 255, 255, 0.1);
-				border-radius: 12px;
-				border: 2px solid rgba(255, 255, 255, 0.2);
-			}
-			
-			.tech-content {
-				flex: 1;
-			}
-			
-			.tech-content h3 {
-				color: #ffffff;
-				margin: 0 0 1rem 0;
-				font-size: 1.3rem;
-			}
-			
-			.tech-content p {
-				color: rgba(255, 255, 255, 0.9);
-				line-height: 1.6;
-				margin: 0 0 0.8rem 0;
-				font-size: 0.9rem;
-			}
-			
-			.tech-content p:last-child {
-				margin-bottom: 0;
-			}
-			
-			.tech-content strong {
-				color: #ffffff;
-			}
-
-			/* 移动端响应式 */
-			@media screen and (max-width: 768px) {
-				.card-container {
-					grid-template-columns: repeat(3, 1fr);
-					gap: 0.8rem;
-					padding: 1rem 0;
-				}
-				
-				.card {
-					padding: 0.8rem 0.5rem;
-				}
-				
-				.card i {
-					font-size: 1.8rem;
-					margin-bottom: 0.5rem;
-				}
-				
-				.card h3 {
-					font-size: 0.8rem;
-					margin: 0.5rem 0 0.3rem 0;
-					line-height: 1.2;
-				}
-				
-				.card p {
-					font-size: 0.65rem;
-					line-height: 1.2;
-				}
-				
-				#two {
-					min-height: auto;
-					padding: 2rem 0;
-				}
-				
-				/* 移动端关于我字体调整 */
-				#two h2 {
-					font-size: 2rem;
-				}
-				
-				#two h3 {
-					font-size: 1rem;
-				}
-				
-				#two p {
-					font-size: 1rem;
-					line-height: 1.6;
-				}
-				
-				#tech-stack {
-					min-height: auto;
-					padding: 2rem 0;
-				}
-				
-				.tech-grid {
-					grid-template-columns: 1fr 1fr;
-					gap: 1.5rem;
-				}
-				
-				.tech-card {
-					padding: 1.5rem;
-					flex-direction: column;
-					align-items: center;
-					text-align: center;
-					gap: 1rem;
-				}
-				
-				.tech-icon {
-					font-size: 2.5rem;
-					width: 50px;
-					height: 50px;
-				}
-				
-				.tech-content h3 {
-					font-size: 1.1rem;
-				}
-				
-				.tech-content p {
-					font-size: 0.8rem;
-				}
-			}
-
-			@media screen and (max-width: 736px){			@media screen and (max-width: 480px) {
-				/* 小屏幕关于我字体调整 */
-				#two h2 {
-					font-size: 1.8rem;
-				}
-				
-				#two h3 {
-					font-size: 0.9rem;
-				}
-				
-				#two p {
-					font-size: 0.9rem;
-					line-height: 1.5;
-				}
-				
-				.tech-grid {
-					grid-template-columns: 1fr 1fr;
-					gap: 1rem;
-					padding: 0 1em;
-				}
-				
-				.tech-card {
-					padding: 1.2rem;
-				}
-				
-				.tech-icon {
-					font-size: 2rem;
-					width: 45px;
-					height: 45px;
-				}
-				
-				.tech-content h3 {
-					font-size: 1rem;
-				}
-				
-				.tech-content p {
-					font-size: 0.75rem;
-				}
-			}
-			
-			/* 超小屏幕样式 */
-			@media screen and (max-width: 360px) {
-				#one {
-					padding: 1.5rem 0 !important;
-				}
-				
-				#two {
-					padding: 1.5rem 0.8rem !important;
-				}
-				
-				#two h2 {
-					font-size: 1.6rem !important;
-					margin: 0 0 0.4rem 0 !important;
-				}
-				
-				#two h3 {
-					font-size: 0.8rem !important;
-					margin: 0 0 0.6rem 0 !important;
-				}
-				
-				#two p {
-					font-size: 0.8rem !important;
-					line-height: 1.3 !important;
-					margin-bottom: 0.5rem !important;
-				}
-			}
-				
-		</style>
-	</head>
-	<body class="landing is-preload" style="user-select: none">
-
-		<!-- 页面布局 -->
-			<div id="page-wrapper">
-				<!-- 头部 -->
-					<header id="header" class="alt">
-						<h1><a href="./index.html">UG</a></h1>
-						<nav id="nav">
+	<!-- 页面布局 -->
+	<div id="page-wrapper">
+		<!-- 头部 -->
+		<header id="header" class="alt">
+			<h1><a href="./index.html">UG</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>菜单</span></a>
+						<div id="menu">
 							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>菜单</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="./index.html">主页</a></li>
-											<li><a href="./pictures.html">照片墙</a></li>
-										</ul>
-									</div>
-								</li>
+								<li><a href="./index.html">主页</a></li>
+								<li><a href="./pictures.html">照片墙</a></li>
 							</ul>
-						</nav>
-					</header>
-
-				<!-- 顶部 -->
-					<section id="banner">
-						<div class="inner">
-							<div id="music-flag"></div>
-							<div align="center" style="margin-bottom: 1em; margin-top: -2em">
-								<div class="bgImg"></div>
-							</div>
-							<h2>UG</h2>
-							<p class="m-font-size-text-init-title"><span>你不能给两个人打伞</span></p>
-							<p class="m-font-size-text-init-title"><span>我的意思是</span></p>
-							<p class="m-font-size-text-init-title"><span>二选一的时候记得放弃我</span></p>
-							<p class="m-font-size-text-init-title"><span>毕竟我,不想做别人的选择</span></p>
-
 						</div>
-						<a href="#one" class="more scrolly">更多</a>
-					</section>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-				<!-- 第一部分 -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>欢迎来到我的网站，我是UG</h2>
-								<p>没想到你竟然敢往下滑，真是让我意外。</p>
-							</header>
-						</div>
-					</section>
+		<!-- 顶部 -->
+		<section id="banner">
+			<div class="inner">
+				<div id="music-flag"></div>
+				<div align="center" style="margin-bottom: 1em; margin-top: -2em">
+					<div class="bgImg"></div>
+				</div>
+				<h2>UG</h2>
+				<p class="m-font-size-text-init-title"><span>你不能给两个人打伞</span></p>
+				<p class="m-font-size-text-init-title"><span>我的意思是</span></p>
+				<p class="m-font-size-text-init-title"><span>二选一的时候记得放弃我</span></p>
+				<p class="m-font-size-text-init-title"><span>毕竟我,不想做别人的选择</span></p>
 
-				<!-- 第二部分 -->
-					<section id="two" class="wrapper special" style="min-height: 60vh; background: #667eea; display: flex; align-items: center; justify-content: center;">
-						<div class="inner" style="max-width: 1200px; width: 100%; text-align: center;">
-							<div class="major">
-								<h2>UG</h2>
-								<h3>斗码大陆的少年</h3>
-							</div>
-							
-							<div>
-								<p>
-									我是UG，一个斗码大陆苦逼的三段码之气的少年，并没有神秘戒指中码老的帮助，但总有一天，我会成为斗码大陆中码帝一样的存在。
-								</p>
-								<p>
-									"三十年河东，三十年河西，莫欺少年穷。"
-								</p>
-							</div>
-						</div>
-					</section>
+			</div>
+			<a href="#one" class="more scrolly">更多</a>
+		</section>
 
-				<!-- 技术栈部分 -->
-					<section id="tech-stack" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>技术栈</h2>
-								<p>这是我在开发路上掌握的技术</p>
-							</header>
-							<div class="tech-grid">
-								<div class="tech-card">
-									<div class="tech-icon">
-										🎮
-									</div>
-									<div class="tech-content">
-										<h3>游戏开发</h3>
-										<p><strong>主要技术：</strong> Unity3D、C#、Laya引擎</p>
-										<p><strong>涉及领域：</strong> 2D/3D游戏、移动端游戏、Web游戏</p>
-									</div>
-								</div>
-								<div class="tech-card">
-									<div class="tech-icon">
-										🎨
-									</div>
-									<div class="tech-content">
-										<h3>前端开发</h3>
-										<p><strong>主要技术：</strong> HTML、CSS、JavaScript、Vue.js</p>
-										<p><strong>涉及领域：</strong> 响应式设计、移动端适配、用户体验优化</p>
-									</div>
-								</div>
-								<div class="tech-card">
-									<div class="tech-icon">
-										⚙️
-									</div>
-									<div class="tech-content">
-										<h3>后端开发</h3>
-										<p><strong>主要技术：</strong> Java、Python、Node.js</p>
-										<p><strong>涉及领域：</strong> Web框架、数据库设计、API开发</p>
-									</div>
-								</div>
-								<div class="tech-card">
-									<div class="tech-icon">
-										🚀
-									</div>
-									<div class="tech-content">
-										<h3>运维开发</h3>
-										<p><strong>主要技术：</strong> Docker、Linux、Git、CI/CD</p>
-										<p><strong>涉及领域：</strong> 自动化部署、容器化、版本控制</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>		
-					
-				<!-- 导航部分 -->
-					<section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>发光发热的宝藏</h2>
-								<p>宝藏就在下方</p>
-							</header>
-							<div class="card-container">
-								<a href="https://blog.ug666.top/" target="_blank" class="card">
-									<i class="fa fa-paper-plane"></i>
-									<h3>UG666</h3>
-									<p>UG的博客</p>
-								</a>
-								<a href="./toys/index.html" target="_blank" class="card">
-									<i class="fa fa-laptop"></i>
-									<h3>UG的一些玩具</h3>
-									<p>有超级马里奥，扫雷，CSS爱心</p>
-								</a>
-								<a href="https://map.ug666.top/" target="_blank" class="card">
-									<i class="fa fa-map-marked-alt"></i>
-									<h3>UG地图世界</h3>
-									<p>探索世界，寻找方向</p>
-								</a>
-								<a href="https://music.ug666.top/" target="_blank" class="card">
-									<i class="fa fa-music"></i>
-									<h3>UG音乐播放器</h3>
-									<p>享受美妙的音乐时光</p>
-								</a>
-								<a href="http://cocos.ug666.top/" target="_blank" class="card">
-									<i class="fa fa-gamepad"></i>
-									<h3>Cocos游戏</h3>
-									<p>Cocos Creator游戏作品</p>
-								</a>
-								<a href="http://unity.ug666.top/" target="_blank" class="card">
-									<i class="fa fa-cube"></i>
-									<h3>Unity游戏</h3>
-									<p>Unity引擎游戏作品</p>
-								</a>
-							</div>
-						</div>
-					</section>
+		<!-- 第一部分 -->
+		<section id="one" class="wrapper style1 special">
+			<div class="inner">
+				<header class="major">
+					<h2>欢迎来到我的网站，我是UG</h2>
+					<p>没想到你竟然敢往下滑，真是让我意外。</p>
+				</header>
+			</div>
+		</section>
 
-				<!-- 结束语 -->
-					<section id="cta" class="wrapper style4">
-						<div class="inner">
-							<header>
-								<h2>结束语</h2>
-								<p>当陪着你的人要下车的时候，即使再不舍，也要挥着手告别。</p>
-							</header>
-						</div>
-					</section>
+		<!-- 第二部分 -->
+		<section id="two" class="wrapper special">
+			<div class="inner" style="max-width: 1200px; width: 100%; text-align: center;">
+				<header class="major">
+					<h2>UG</h2>
+					<p>斗码大陆的少年</p>
+				</header>
 
-				<!-- Music-->
-				<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+				<div>
+					<p>
+						我是UG，一个斗码大陆苦逼的三段码之气的少年，并没有神秘戒指中码老的帮助，但总有一天，我会成为斗码大陆中码帝一样的存在。
+					</p>
+					<p>
+						"三十年河东，三十年河西，莫欺少年穷。"
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 技术栈部分 -->
+		<section id="tech-stack" class="wrapper style2 special">
+			<div class="inner">
+				<header class="major">
+					<h2>技术栈</h2>
+					<p>学好技术才能当牛马</p>
+				</header>
+				<div class="tech-grid">
+					<div class="tech-card">
+						<div class="tech-icon">🎮</div>
+						<div class="tech-content">
+							<h3>游戏开发</h3>
+							<p><strong>Unity3D</strong> / <strong>C#</strong> / <strong>Laya</strong></p>
+							<p>2D/3D游戏 · 移动端游戏 · Web游戏</p>
+						</div>
+					</div>
+					<div class="tech-card">
+						<div class="tech-icon">🎨</div>
+						<div class="tech-content">
+							<h3>前端开发</h3>
+							<p><strong>Vue3</strong> / <strong>TypeScript</strong> / <strong>Vite</strong></p>
+							<p>响应式设计 · 移动端适配 · 用户体验</p>
+						</div>
+					</div>
+					<div class="tech-card">
+						<div class="tech-icon">⚙️</div>
+						<div class="tech-content">
+							<h3>后端开发</h3>
+							<p><strong>Java</strong> / <strong>Python</strong> / <strong>Node.js</strong></p>
+							<p>Web框架 · 数据库设计 · API开发</p>
+						</div>
+					</div>
+					<div class="tech-card">
+						<div class="tech-icon">🚀</div>
+						<div class="tech-content">
+							<h3>运维开发</h3>
+							<p><strong>Docker</strong> / <strong>Linux</strong> / <strong>CI/CD</strong></p>
+							<p>自动化部署 · 容器化 · 版本控制</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 导航部分 -->
+		<section id="three" class="wrapper style3 special">
+			<div class="inner">
+				<header class="major">
+					<h2>发光发热的宝藏</h2>
+					<p>宝藏就在下方</p>
+				</header>
+				<div class="card-container">
+					<a href="https://blog.ug666.top/" target="_blank" class="card">
+						<i class="fa fa-paper-plane"></i>
+						<h3>UG666</h3>
+						<p>UG的博客</p>
+					</a>
+					<a href="./toys/index.html" target="_blank" class="card">
+						<i class="fa fa-laptop"></i>
+						<h3>UG的一些玩具</h3>
+						<p>有超级马里奥，扫雷，CSS爱心</p>
+					</a>
+					<a href="https://map.ug666.top/" target="_blank" class="card">
+						<i class="fa fa-map-marked-alt"></i>
+						<h3>UG地图世界</h3>
+						<p>探索世界，寻找方向</p>
+					</a>
+					<a href="https://music.ug666.top/" target="_blank" class="card">
+						<i class="fa fa-music"></i>
+						<h3>UG音乐播放器</h3>
+						<p>享受美妙的音乐时光</p>
+					</a>
+					<a href="http://cocos.ug666.top/" target="_blank" class="card">
+						<i class="fa fa-gamepad"></i>
+						<h3>Cocos游戏</h3>
+						<p>Cocos Creator游戏作品</p>
+					</a>
+					<a href="http://unity.ug666.top/" target="_blank" class="card">
+						<i class="fa fa-cube"></i>
+						<h3>Unity游戏</h3>
+						<p>Unity引擎游戏作品</p>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- 结束语 -->
+		<section id="cta" class="wrapper style4">
+			<div class="inner">
+				<header>
+					<h2>结束语</h2>
+					<p>当陪着你的人要下车的时候，即使再不舍，也要挥着手告别。</p>
+				</header>
+			</div>
+		</section>
+
+		<!-- Music-->
+		<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"></script>
 				<style>.display-none{display: none;}</style>
 				<div style="line-height: 0!important; color: black" id="music" class="display-none">
 					<meting-js server="netease" type="playlist" id="8262953920" list-folded="true" fixed="true" loop="all"></meting-js>
 				</div> -->
-				<!-- Music end -->
+		<!-- Music end -->
 
-				<!-- 底部 -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="https://twitter.com/uguang666" target="_blank" class="icon brands fa fa-x-twitter"><span class="label">X</span></a></li>
-							<li><a href="https://www.facebook.com/uguang2003" target="_blank" class="icon brands fa fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://github.com/uguang2003" target="_blank" class="icon brands fa fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://t.me/uguang666/" target="_blank" class="icon brands fa fa-telegram"><span class="label">Telegram</span></a></li>
-							<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" target="_blank" class="icon brands fa fa-tiktok"><span class="label">TikTok</span></a></li>
-							<li><a href="mailto:uguang2003@email.com" target="_blank" class="icon solid fa fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">网站已生存:<span id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
-						<ul class="copyright">
-							<li>&copy; 2022 - 2025 UG</li>
-							<li> All rights reserved.</li>
-							<li><a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">赣ICP备2023014531号-1</a></li>
-						</ul>
-					</footer>
+		<!-- 底部 -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="https://twitter.com/uguang666" target="_blank" class="icon brands fa fa-x-twitter"><span
+							class="label">X</span></a></li>
+				<li><a href="https://www.facebook.com/uguang2003" target="_blank" class="icon brands fa fa-facebook-f"><span
+							class="label">Facebook</span></a></li>
+				<li><a href="https://github.com/uguang2003" target="_blank" class="icon brands fa fa-github"><span
+							class="label">Github</span></a></li>
+				<li><a href="https://t.me/uguang666/" target="_blank" class="icon brands fa fa-telegram"><span
+							class="label">Telegram</span></a></li>
+				<li><a href="https://www.tiktok.com/@ug666666?is_from_webapp=1&sender_device=pc" target="_blank"
+						class="icon brands fa fa-tiktok"><span class="label">TikTok</span></a></li>
+				<li><a href="mailto:uguang2003@email.com" target="_blank" class="icon solid fa fa-envelope"><span
+							class="label">Email</span></a></li>
+			</ul>
+			<div style="color: #919397;margin: 1em 0" class="ui inverted m-text-thin m-text-spaced">网站已生存:<span
+					id="htmer_time" class="item m-text-thin"></span>(❁´◡`❁)</div>
+			<ul class="copyright">
+				<li>&copy; 2022 - 2025 UG</li>
+				<li> All rights reserved.</li>
+				<li><a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">赣ICP备2023014531号-1</a></li>
+			</ul>
+		</footer>
 
-			</div>
+	</div>
 
-		<!-- 脚本 -->
-			<!-- UG666动画的组件 -->
-			<script src="./assets/js/breakpoints.min.js"></script>
-			<!-- jquery -->
-			<script src="./assets/js/jquery.min.js"></script>
-			<!-- “更多”按钮点击后向下滑动画的组件 -->
-			<script src="./assets/js/jquery.scrolly.min.js"></script>
-			<!-- “更多”按钮显示头部的组件 -->
-			<script src="./assets/js/jquery.scrollex.min.js"></script>
-			<script src="./assets/js/browser.min.js"></script>
-			<script src="./assets/js/util.js"></script>
-			<!-- 主js -->
-			<script src="./assets/js/main.js"></script>
-			<script>
-				// 运行时间统计
-				function secondToDate(second) {
-					if (!second) {
-						return 0;
-					}
-					const time = [0, 0, 0, 0, 0];
-					if (second >= 365 * 24 * 3600) {
-						time[0] = parseInt(second / (365 * 24 * 3600));
-						second %= 365 * 24 * 3600;
-					}
-					if (second >= 24 * 3600) {
-						time[1] = parseInt(second / (24 * 3600));
-						second %= 24 * 3600;
-					}
-					if (second >= 3600) {
-						time[2] = parseInt(second / 3600);
-						second %= 3600;
-					}
-					if (second >= 60) {
-						time[3] = parseInt(second / 60);
-						second %= 60;
-					}
-					if (second > 0) {
-						time[4] = second;
-					}
-					return time;
-				}
-				function setTime() {
-					/*此处为网站的创建时间*/
-					const create_time = Math.round(new Date(Date.UTC(2022, 5 - 1, 14, 11, 15, 0)).getTime() / 1000);
-					const timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
-					const currentTime = secondToDate((timestamp - create_time));
-					const currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
-							+ currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
-							+ '秒';
-					document.getElementById("htmer_time").innerHTML = currentTimeHtml;
-				}
-				setInterval(setTime, 1000);
-			</script>
+	<!-- 脚本 -->
+	<!-- UG666动画的组件 -->
+	<script src="./assets/js/breakpoints.min.js"></script>
+	<!-- jquery -->
+	<script src="./assets/js/jquery.min.js"></script>
+	<!-- “更多”按钮点击后向下滑动画的组件 -->
+	<script src="./assets/js/jquery.scrolly.min.js"></script>
+	<!-- “更多”按钮显示头部的组件 -->
+	<script src="./assets/js/jquery.scrollex.min.js"></script>
+	<script src="./assets/js/browser.min.js"></script>
+	<script src="./assets/js/util.js"></script>
+	<!-- 主js -->
+	<script src="./assets/js/main.js"></script>
+	<script>
+		// 运行时间统计
+		function secondToDate(second) {
+			if (!second) {
+				return 0;
+			}
+			const time = [0, 0, 0, 0, 0];
+			if (second >= 365 * 24 * 3600) {
+				time[0] = parseInt(second / (365 * 24 * 3600));
+				second %= 365 * 24 * 3600;
+			}
+			if (second >= 24 * 3600) {
+				time[1] = parseInt(second / (24 * 3600));
+				second %= 24 * 3600;
+			}
+			if (second >= 3600) {
+				time[2] = parseInt(second / 3600);
+				second %= 3600;
+			}
+			if (second >= 60) {
+				time[3] = parseInt(second / 60);
+				second %= 60;
+			}
+			if (second > 0) {
+				time[4] = second;
+			}
+			return time;
+		}
+		function setTime() {
+			/*此处为网站的创建时间*/
+			const create_time = Math.round(new Date(Date.UTC(2022, 5 - 1, 14, 11, 15, 0)).getTime() / 1000);
+			const timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+			const currentTime = secondToDate((timestamp - create_time));
+			const currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+				+ currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+				+ '秒';
+			document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+		}
+		setInterval(setTime, 1000);
+	</script>
 
-			<!--鼠标点击后显示的样式-->
-			<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
-			<script type="text/javascript" src="./assets/js/djtx.js"></script>
+	<!--鼠标点击后显示的样式-->
+	<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
+	<script type="text/javascript" src="./assets/js/djtx.js"></script>
 
-	</body>
+</body>
+
 </html>
